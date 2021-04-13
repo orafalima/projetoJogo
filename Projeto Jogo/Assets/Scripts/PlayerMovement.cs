@@ -6,17 +6,12 @@ public class PlayerMovement : MonoBehaviour
 {
     public CharacterController2D controller;
 
-    private float horizontalMovement = 0f;
+    public float speed = 1f;
 
     private bool isJumping = false;
 
-    [SerializeField]
-    private float speed = 40f;
-
     private void Update()
     {
-        horizontalMovement = Input.GetAxisRaw("Horizontal") * speed;
-
         if (Input.GetButtonDown("Jump"))
         {
             isJumping = true;
@@ -25,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        controller.Move(horizontalMovement * Time.fixedDeltaTime, false, isJumping);
+        controller.Move(speed * Time.fixedDeltaTime, false, isJumping);
         isJumping = false;
     }
 
