@@ -5174,13 +5174,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 15
   direction: 1
-  maxJumps: 1
-  jumpForce: 9
+  maxJumps: 2
+  jumpForce: 8
   upDashForce: 12
   downDashForce: 8
   rightDashForce: 70
-  cameraCineMachine: {fileID: 2123315053}
-  platform: {fileID: 0}
+  dashCooldown: 5
 --- !u!1 &1769971775
 GameObject:
   m_ObjectHideFlags: 0
@@ -5690,7 +5689,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 40f45a00b02e2f542a22b980e2be8fdf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a59055110cb099142b8e2c2e2d6d9691, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6576,7 +6575,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6393fe74035c0b749a816c9650248913, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 193d3518fd5425a4da9db522d784a126, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

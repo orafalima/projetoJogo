@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Cinemachine;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -31,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
 
     // Dash attributtes
     private bool canDash = true;
-    private float dashCooldown = 5f;
+    public float dashCooldown = 5f;
     private float dashTimePassed = 0;
 
     private void Awake()
@@ -46,15 +45,11 @@ public class PlayerMovement : MonoBehaviour
         float movement = speed * Time.fixedDeltaTime;
         Vector3 targetVelocity = Vector2.zero;
 
-<<<<<<< Updated upstream
-    private float horizontalMovement = 0f;
-=======
         if (direction == Direction.Right)
             targetVelocity = new Vector2(movement * 10f, p_RigidBody2D.velocity.y);
         
         if (direction == Direction.Left)
             targetVelocity = new Vector2(-(movement * 10f), p_RigidBody2D.velocity.y);
->>>>>>> Stashed changes
 
         p_RigidBody2D.velocity = Vector3.SmoothDamp(p_RigidBody2D.velocity, targetVelocity, ref p_velocity, 0.05f);
 
@@ -71,16 +66,8 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    [SerializeField]
-    private float speed = 40f;
-
     private void Update()
     {
-<<<<<<< Updated upstream
-        horizontalMovement = Input.GetAxisRaw("Horizontal") * speed;
-
-        if (Input.GetButtonDown("Jump"))
-=======
         float gravityDelay = 0.3f;
 
         // Jump movement
@@ -96,7 +83,6 @@ public class PlayerMovement : MonoBehaviour
 
         // Fall movement
         if (Input.GetKeyDown(KeyCode.DownArrow))
->>>>>>> Stashed changes
         {
             if (platform != null)
             {
@@ -151,10 +137,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-<<<<<<< Updated upstream
-        controller.Move(horizontalMovement * Time.fixedDeltaTime, false, isJumping);
-        isJumping = false;
-=======
         if (collision.gameObject.tag == "Ground")
         {
             isGrounded = true;
@@ -181,7 +163,6 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = false;
             platform = null;
         }
->>>>>>> Stashed changes
     }
 
 }
