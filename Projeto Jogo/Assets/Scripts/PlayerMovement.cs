@@ -33,6 +33,9 @@ public class PlayerMovement : MonoBehaviour
     public float dashCooldown = 5f;
     private float dashTimePassed = 0;
 
+    // Audio
+    public PlayerAudio playerAudio;
+
     private void Awake()
     {
         p_RigidBody2D = GetComponent<Rigidbody2D>();
@@ -76,6 +79,7 @@ public class PlayerMovement : MonoBehaviour
             if (jumpCount < maxJumps)
             {
                 Debug.Log("Jump!");
+                playerAudio.PlayJumpAudio();
                 p_RigidBody2D.velocity = Vector2.up * jumpForce;
                 jumpCount++;
             }
@@ -97,6 +101,7 @@ public class PlayerMovement : MonoBehaviour
             if (canDash && !isGrounded)
             {
                 Debug.Log("Up Dash!");
+                playerAudio.PlayDashAudio();
                 p_RigidBody2D.velocity = Vector2.up * upDashForce;
                 dashTimePassed = 0;
             }
@@ -108,6 +113,7 @@ public class PlayerMovement : MonoBehaviour
             if (canDash && !isGrounded)
             {
                 Debug.Log("Down Dash!");
+                playerAudio.PlayDashAudio();
                 p_RigidBody2D.gravityScale = 0;
                 p_RigidBody2D.velocity = Vector2.down * downDashForce;
                 dashTimePassed = 0;
@@ -121,6 +127,7 @@ public class PlayerMovement : MonoBehaviour
             if (canDash && !isGrounded)
             {
                 Debug.Log("Right Dash!");
+                playerAudio.PlayDashAudio();
                 p_RigidBody2D.gravityScale = 0;
                 p_RigidBody2D.velocity = Vector2.right * rightDashForce;
                 dashTimePassed = 0;
