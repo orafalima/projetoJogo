@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     [Range(0, 30)] public float speed = 15; // speed of the running
     public Direction direction = Direction.Right; // direction which the player is going
     public int maxJumps = 2; // maximum jumps player can use
-    private int jumpCount = 0; // how many jumps player has already used
+    public int jumpCount = 0; // how many jumps player has already used
 
     private Rigidbody2D p_RigidBody2D = null; // player rigid body
     private Vector3 p_velocity = Vector3.zero; // player velocity
@@ -142,7 +142,7 @@ public class PlayerMovement : MonoBehaviour
         p_RigidBody2D.gravityScale = 2;
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Ground")
         {
