@@ -146,6 +146,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ground")
         {
+            Debug.Log("ground!");
             isGrounded = true;
             jumpCount = 0;
         }
