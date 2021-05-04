@@ -1,0 +1,708 @@
+fileFormatVersion: 2
+guid: f255f16948454544eb7d273744174211
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3958162014196750911
+    second: dash-lateral-spritesheet_0
+  - first:
+      213: 8559458651796884566
+    second: dash-lateral-spritesheet_1
+  - first:
+      213: 1279573894417310828
+    second: dash-lateral-spritesheet_2
+  - first:
+      213: 2656306595302805754
+    second: dash-lateral-spritesheet_3
+  - first:
+      213: -8731661475719015456
+    second: dash-lateral-spritesheet_4
+  - first:
+      213: 387929457428062062
+    second: dash-lateral-spritesheet_5
+  - first:
+      213: -1098815343597918669
+    second: dash-lateral-spritesheet_6
+  - first:
+      213: 4537824790512998855
+    second: dash-lateral-spritesheet_7
+  - first:
+      213: -4599209318688804127
+    second: dash-lateral-spritesheet_8
+  - first:
+      213: 8626924252403797723
+    second: dash-lateral-spritesheet_9
+  - first:
+      213: -1140558544405683825
+    second: dash-lateral-spritesheet_10
+  - first:
+      213: -8885721908685807156
+    second: dash-lateral-spritesheet_11
+  - first:
+      213: 7212041585990604786
+    second: dash-lateral-spritesheet_12
+  - first:
+      213: 4499972282127297748
+    second: dash-lateral-spritesheet_13
+  - first:
+      213: -6241986572955572296
+    second: dash-lateral-spritesheet_14
+  - first:
+      213: -2822630468257921145
+    second: dash-lateral-spritesheet_15
+  - first:
+      213: -4103538271793657736
+    second: dash-lateral-spritesheet_16
+  - first:
+      213: -207683230233079101
+    second: dash-lateral-spritesheet_17
+  - first:
+      213: 1279558964606193916
+    second: dash-lateral-spritesheet_18
+  - first:
+      213: -3273312831784567843
+    second: dash-lateral-spritesheet_19
+  - first:
+      213: 1642981977243768836
+    second: dash-lateral-spritesheet_20
+  - first:
+      213: -8465440202569635763
+    second: dash-lateral-spritesheet_21
+  - first:
+      213: 4150820921580771505
+    second: dash-lateral-spritesheet_22
+  - first:
+      213: 6762284034587537935
+    second: dash-lateral-spritesheet_23
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: dash-lateral-spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1000.8333
+        width: 600
+        height: 200.16667
+      alignment: 9
+      pivot: {x: 0.833, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c5ab5c8e98c119c0800000000000000
+      internalID: -3958162014196750911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dash-lateral-spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 1000.8333
+        width: 600
+        height: 200.16667
+      alignment: 9
+      pivot: {x: 0.833, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65c4ff93b4e49c670800000000000000
+      internalID: 8559458651796884566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dash-lateral-spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 1000.8333
+        width: 600
+        height: 200.16667
+      alignment: 9
+      pivot: {x: 0.833, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c646b907da5f1c110800000000000000
+      internalID: 1279573894417310828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dash-lateral-spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 1000.8333
+        width: 600
+        height: 200.16667
+      alignment: 9
+      pivot: {x: 0.833, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af01d8356c81dd420800000000000000
+      internalID: 2656306595302805754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dash-lateral-spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 800.8333
+        width: 600
+        height: 200.16667
+      alignment: 9
+      pivot: {x: 0.833, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e31ec07628e2d680800000000000000
+      internalID: -8731661475719015456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dash-lateral-spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 800.8333
+        width: 600
+        height: 200.16667
+      alignment: 9
+      pivot: {x: 0.833, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6fd8e349c3326500800000000000000
+      internalID: 387929457428062062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dash-lateral-spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 800.8333
+        width: 600
+        height: 200.16667
+      alignment: 9
+      pivot: {x: 0.833, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 336e81b444930c0f0800000000000000
+      internalID: -1098815343597918669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dash-lateral-spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 800.8333
+        width: 600
+        height: 200.16667
+      alignment: 9
+      pivot: {x: 0.833, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c91d73ca9799fe30800000000000000
+      internalID: 4537824790512998855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dash-lateral-spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 600.8333
+        width: 600
+        height: 200.16667
+      alignment: 9
+      pivot: {x: 0.833, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e233e70e735c20c0800000000000000
+      internalID: -4599209318688804127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dash-lateral-spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 600.8333
+        width: 600
+        height: 200.16667
+      alignment: 9
+      pivot: {x: 0.833, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bde0bb076edf8b770800000000000000
+      internalID: 8626924252403797723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dash-lateral-spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 600.8333
+        width: 600
+        height: 200.16667
+      alignment: 9
+      pivot: {x: 0.833, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f81a92bfb0ceb20f0800000000000000
+      internalID: -1140558544405683825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dash-lateral-spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 600.8333
+        width: 600
+        height: 200.16667
+      alignment: 9
+      pivot: {x: 0.833, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc160eba0039fa480800000000000000
+      internalID: -8885721908685807156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dash-lateral-spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 400.8333
+        width: 600
+        height: 200.16667
+      alignment: 9
+      pivot: {x: 0.833, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f790568c91561460800000000000000
+      internalID: 7212041585990604786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dash-lateral-spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 400.8333
+        width: 600
+        height: 200.16667
+      alignment: 9
+      pivot: {x: 0.833, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dc2d4fd2fc137e30800000000000000
+      internalID: 4499972282127297748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dash-lateral-spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 400.8333
+        width: 600
+        height: 200.16667
+      alignment: 9
+      pivot: {x: 0.833, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b7a93a88420069a0800000000000000
+      internalID: -6241986572955572296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dash-lateral-spritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 400.8333
+        width: 600
+        height: 200.16667
+      alignment: 9
+      pivot: {x: 0.833, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 787ca474b8004d8d0800000000000000
+      internalID: -2822630468257921145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dash-lateral-spritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 200.83333
+        width: 600
+        height: 200.16667
+      alignment: 9
+      pivot: {x: 0.833, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 878c48beead4d07c0800000000000000
+      internalID: -4103538271793657736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dash-lateral-spritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 200.83333
+        width: 600
+        height: 200.16667
+      alignment: 9
+      pivot: {x: 0.833, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c2d624d3392e1df0800000000000000
+      internalID: -207683230233079101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dash-lateral-spritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 200.83333
+        width: 600
+        height: 200.16667
+      alignment: 9
+      pivot: {x: 0.833, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf0d4825918e1c110800000000000000
+      internalID: 1279558964606193916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dash-lateral-spritesheet_19
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 200.83333
+        width: 600
+        height: 200.16667
+      alignment: 9
+      pivot: {x: 0.833, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddbb0ce725bd292d0800000000000000
+      internalID: -3273312831784567843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dash-lateral-spritesheet_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0.83332825
+        width: 600
+        height: 200.16667
+      alignment: 9
+      pivot: {x: 0.833, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 408dbf5476b0dc610800000000000000
+      internalID: 1642981977243768836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dash-lateral-spritesheet_21
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0.83332825
+        width: 600
+        height: 200.16667
+      alignment: 9
+      pivot: {x: 0.833, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d48a682dcf6b48a80800000000000000
+      internalID: -8465440202569635763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dash-lateral-spritesheet_22
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 0.83332825
+        width: 600
+        height: 200.16667
+      alignment: 9
+      pivot: {x: 0.833, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b8d41dd2adaa9930800000000000000
+      internalID: 4150820921580771505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dash-lateral-spritesheet_23
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 0.83332825
+        width: 600
+        height: 200.16667
+      alignment: 9
+      pivot: {x: 0.833, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f02b2e7508578dd50800000000000000
+      internalID: 6762284034587537935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

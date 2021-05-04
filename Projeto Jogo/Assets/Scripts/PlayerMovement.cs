@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -36,10 +35,14 @@ public class PlayerMovement : MonoBehaviour
     // Audio
     public PlayerAudio playerAudio;
 
+    // Animation
+    public Animator animator;
+
     private void Awake()
     {
         p_RigidBody2D = GetComponent<Rigidbody2D>();
         dashTimePassed = dashCooldown;
+        animator = GetComponent<Animator>();
     }
 
     void FixedUpdate()
@@ -61,11 +64,13 @@ public class PlayerMovement : MonoBehaviour
         {
             dashTimePassed += Time.fixedDeltaTime;
             canDash = false;
+            animator.SetBool("Dashing", false);
         }
         else
         {
             dashTimePassed = dashCooldown;
             canDash = true;
+
         }
     }
 
@@ -79,10 +84,22 @@ public class PlayerMovement : MonoBehaviour
             if (jumpCount < maxJumps)
             {
                 Debug.Log("Jump!");
+
+                animator.SetBool("Jumping", true);
+                if (jumpCount == 1)
+                {
+
+                    animator.SetBool("Jumping", false);
+                    animator.SetBool("SecondJump", true);
+                }
+
                 playerAudio.PlayJumpAudio();
                 p_RigidBody2D.velocity = Vector2.up * jumpForce;
                 jumpCount++;
+
+                StartCoroutine(AnimationLoad());
             }
+
         }
 
         // Fall movement
@@ -102,8 +119,14 @@ public class PlayerMovement : MonoBehaviour
             {
                 Debug.Log("Up Dash!");
                 playerAudio.PlayDashAudio();
+
+                animator.SetBool("Dashing", true);
+
                 p_RigidBody2D.velocity = Vector2.up * upDashForce;
                 dashTimePassed = 0;
+
+                //animator.SetBool("Dashing", false);
+
             }
         }
 
@@ -112,12 +135,16 @@ public class PlayerMovement : MonoBehaviour
         {
             if (canDash && !isGrounded)
             {
-                Debug.Log("Down Dash!");
+                // Debug.Log("Down Dash!");
                 playerAudio.PlayDashAudio();
                 p_RigidBody2D.gravityScale = 0;
+
+                animator.SetBool("Dashing", true);
+
                 p_RigidBody2D.velocity = Vector2.down * downDashForce;
                 dashTimePassed = 0;
                 StartCoroutine(PauseGravity(gravityDelay));
+
             }
         }
 
@@ -127,13 +154,28 @@ public class PlayerMovement : MonoBehaviour
             if (canDash && !isGrounded)
             {
                 Debug.Log("Right Dash!");
+
+                animator.SetBool("Dashing", true);
+
                 playerAudio.PlayDashAudio();
                 p_RigidBody2D.gravityScale = 0;
+
                 p_RigidBody2D.velocity = Vector2.right * rightDashForce;
+
                 dashTimePassed = 0;
                 StartCoroutine(PauseGravity(gravityDelay));
+
+
             }
         }
+
+
+    }
+
+    IEnumerator AnimationLoad()
+    {
+        yield return 0;
+        animator.SetBool("SecondJump", false);
     }
 
     IEnumerator PauseGravity(float gravityDelay)
@@ -146,15 +188,22 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ground")
         {
-            Debug.Log("ground!");
             isGrounded = true;
+            animator.SetBool("IsGrounded", true);
             jumpCount = 0;
+            animator.SetBool("Jumping", false);
+            animator.SetBool("SecondJump", false);
+
         }
 
         if (collision.gameObject.tag == "Platform")
         {
             isGrounded = true;
+            animator.SetBool("IsGrounded", true);
             jumpCount = 0;
+            animator.SetBool("Jumping", false);
+            animator.SetBool("SecondJump", false);
+
             platform = collision.gameObject;
         }
     }
@@ -164,11 +213,14 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             isGrounded = false;
+            animator.SetBool("IsGrounded", false);
+
         }
 
         if (collision.gameObject.tag == "Platform")
         {
             isGrounded = false;
+            animator.SetBool("IsGrounded", false);
             platform = null;
         }
     }

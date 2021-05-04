@@ -22,7 +22,7 @@ public class PlayerRespawn : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Thread.Sleep(1000);
+        //Thread.Sleep(1000);
         player.transform.position = new Vector3(-4, -1, 0);
     }
 }
