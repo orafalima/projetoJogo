@@ -3,46 +3,66 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // Enum with directions
-    public enum Direction
-    {
-        Left,
-        Right
-    }
+    // Controller
+    private bool PlayerHasControl { get; set; }
 
-    [Range(0, 30)] public float speed = 15; // speed of the running
-    public Direction direction = Direction.Right; // direction which the player is going
-    public int maxJumps = 2; // maximum jumps player can use
-    public int jumpCount = 0; // how many jumps player has already used
-
+    // Physics
     private Rigidbody2D p_RigidBody2D = null; // player rigid body
     private Vector3 p_velocity = Vector3.zero; // player velocity
+    public float gravityDelay = 0.3f; // player gravity delay
 
+    // Physics for Controller
+    private bool jump = false;
+
+    // Running Attributes
+    public bool running = false; // toggle running state
+    [Range(0, 30)] public float speed = 15; // speed of the running
+    public Direction direction = Direction.Right; // direction which the player is going
+    public enum Direction { Right, Left }
+
+    // Jumping and Grounding
+    public int maxJumps = 2; // maximum jumps player can use
+    public int jumpCount = 0; // how many jumps player has already used
+    public float jumpForce = 10; // force of jump
     private bool isGrounded = false; // if player is on the ground/plaform
-    private GameObject platform; // what platform player is colliding with
-
-    // Force attributes (jump and dashes)
-    public float jumpForce = 10;
-    public float upDashForce = 10;
-    public float downDashForce = 10;
-    public float rightDashForce = 10;
+    private float airTime; // to control landing animation
+    private GameObject platform { get; set; } // what platform player is colliding with
 
     // Dash attributtes
     private bool canDash = true;
-    public float dashCooldown = 5f;
-    private float dashTimePassed = 0;
+    private float dashTimePassed = 0; // counter for Dash Recharge
+    public float dashCooldown = 2f;
+    public float upDashForce = 13;
+    public float downDashForce = 20;
+    public float rightDashForce = 10;
 
-    // Audio
-    public PlayerAudio playerAudio;
+    // Cape Attributes
+    public CapeController cape;
 
-    // Animation
-    public Animator animator;
+    // Audio Controller
+    private PlayerAudio playerAudio;
+
+    // Animation & Sprites Controller
+    private Animator animator;
+    private SpriteRenderer sprites;
 
     private void Awake()
     {
+        PlayerHasControl = true;
+
+        // Getting Object References
         p_RigidBody2D = GetComponent<Rigidbody2D>();
-        dashTimePassed = dashCooldown;
         animator = GetComponent<Animator>();
+        sprites = GetComponent<SpriteRenderer>();
+        playerAudio = GetComponent<PlayerAudio>();
+
+        // Setting Initial Attributes
+        running = true; // WARNING: ALL TO 'FALSE' ON GAMEBUILD
+        cape.HasCape = true;
+        cape.Running = true;
+        // animator.SetBool("running", true);
+
+        dashTimePassed = dashCooldown;
     }
 
     void FixedUpdate()
@@ -51,11 +71,17 @@ public class PlayerMovement : MonoBehaviour
         float movement = speed * Time.fixedDeltaTime;
         Vector3 targetVelocity = Vector2.zero;
 
-        if (direction == Direction.Right)
+        if (direction == Direction.Right && running)
+        {
             targetVelocity = new Vector2(movement * 10f, p_RigidBody2D.velocity.y);
-        
-        if (direction == Direction.Left)
+            sprites.flipX = false;
+        }
+
+        if (direction == Direction.Left && running)
+        {
             targetVelocity = new Vector2(-(movement * 10f), p_RigidBody2D.velocity.y);
+            sprites.flipX = true;
+        }
 
         p_RigidBody2D.velocity = Vector3.SmoothDamp(p_RigidBody2D.velocity, targetVelocity, ref p_velocity, 0.05f);
 
@@ -64,124 +90,207 @@ public class PlayerMovement : MonoBehaviour
         {
             dashTimePassed += Time.fixedDeltaTime;
             canDash = false;
+            cape.CanDash = false;
             animator.SetBool("Dashing", false);
         }
         else
         {
             dashTimePassed = dashCooldown;
             canDash = true;
+            cape.CanDash = true;
+        }
 
+        // Airtime Count
+        if (!isGrounded)
+        {
+            airTime += Time.fixedDeltaTime;
+            Debug.Log(airTime);
+        }
+
+        // Grounding Check
+
+        if (isGrounded)
+        {
+            // Animation Cycle
+            animator.SetBool("isGrounded", true);
+            animator.SetBool("jump1", false);
+            animator.SetBool("jump2", false);
+
+            if (airTime > 1.5)
+                animator.SetBool("hardLanding", true);
+            else
+                animator.SetBool("softLanding", true);
+            StartCoroutine(AnimationReload());
+
+            // Logic Cycle
+            airTime = 0;
+            jumpCount = 0;
+        }
+
+        // Controller Physics Execution
+        if (jump)
+        {
+            p_RigidBody2D.velocity = Vector2.up * jumpForce;
+            jump = false;
         }
     }
 
     private void Update()
     {
-        float gravityDelay = 0.3f;
 
-        // Jump movement
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        // Inputs
+        if (PlayerHasControl)
         {
-            if (jumpCount < maxJumps)
+            // Jump movement
+            if (Input.GetKeyDown(KeyCode.UpArrow))
             {
-                Debug.Log("Jump!");
-
-                animator.SetBool("Jumping", true);
-                if (jumpCount == 1)
-                {
-
-                    animator.SetBool("Jumping", false);
-                    animator.SetBool("SecondJump", true);
-                }
-
-                playerAudio.PlayJumpAudio();
-                p_RigidBody2D.velocity = Vector2.up * jumpForce;
-                jumpCount++;
-
-                StartCoroutine(AnimationLoad());
+                if (jumpCount < maxJumps)
+                    Jump();
             }
 
-        }
-
-        // Fall movement
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            if (platform != null)
+            // Fall movement
+            if (Input.GetKeyDown(KeyCode.DownArrow))
             {
-                Debug.Log("Fall!");
-                platform.GetComponent<EdgeCollider2D>().enabled = false;
+                if (platform != null)
+                    platform.GetComponent<EdgeCollider2D>().enabled = false;
+            }
+
+            // Up dash movement
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                if (canDash && !isGrounded)
+                    UpDash();
+            }
+
+            // Down dash movement
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                if (canDash && !isGrounded)
+                    DownDash();
+            }
+
+            // Right dash movement
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                if (canDash && !isGrounded)
+                    LateralDash();
             }
         }
-
-        // Up dash movement
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            if (canDash && !isGrounded)
-            {
-                Debug.Log("Up Dash!");
-                playerAudio.PlayDashAudio();
-
-                animator.SetBool("Dashing", true);
-
-                p_RigidBody2D.velocity = Vector2.up * upDashForce;
-                dashTimePassed = 0;
-
-                //animator.SetBool("Dashing", false);
-
-            }
-        }
-
-        // Down dash movement
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            if (canDash && !isGrounded)
-            {
-                // Debug.Log("Down Dash!");
-                playerAudio.PlayDashAudio();
-                p_RigidBody2D.gravityScale = 0;
-
-                animator.SetBool("Dashing", true);
-
-                p_RigidBody2D.velocity = Vector2.down * downDashForce;
-                dashTimePassed = 0;
-                StartCoroutine(PauseGravity(gravityDelay));
-
-            }
-        }
-
-        // Right dash movement
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            if (canDash && !isGrounded)
-            {
-                Debug.Log("Right Dash!");
-
-                animator.SetBool("Dashing", true);
-
-                playerAudio.PlayDashAudio();
-                p_RigidBody2D.gravityScale = 0;
-
-                p_RigidBody2D.velocity = Vector2.right * rightDashForce;
-
-                dashTimePassed = 0;
-                StartCoroutine(PauseGravity(gravityDelay));
-
-
-            }
-        }
-
-
     }
 
-    IEnumerator AnimationLoad()
+    private void Jump()
+    {
+        // Animation Cycle
+        if (jumpCount == 0)
+            animator.SetBool("jump1", true);
+        else
+            animator.SetBool("jump2", true);
+
+        StartCoroutine(AnimationReload());
+
+        // Audio Cycle
+        playerAudio.PlayJumpAudio();
+
+        // Logic Cycle
+        jumpCount++;
+        // Physics Cycle
+        jump = true;
+    }
+
+    private void LateralDash()
+    {
+        // Animation Cycle
+        animator.SetBool("lateralDash", true);
+        cape.LateralDash = true;
+        cape.CanDash = false;
+        StartCoroutine(AnimationReload());
+
+        // Audio Cycle
+        playerAudio.PlayDashAudio();
+
+        // Logic Cycle
+        dashTimePassed = 0;
+
+        // Physics Cycle
+        p_RigidBody2D.gravityScale = 0;
+        p_RigidBody2D.velocity = Vector2.right * rightDashForce;
+        StartCoroutine(PauseGravity());
+    }
+
+    private void DownDash()
+    {
+        // Animation Cycle
+        animator.SetBool("downDash", true);
+        animator.SetBool("hardLanding", true);
+        cape.DownDash = true;
+        cape.CanDash = false;
+        StartCoroutine(AnimationReload());
+
+        // Audio Cycle
+        playerAudio.PlayDashAudio();
+
+        // Logic Cycle
+        dashTimePassed = 0;
+
+        // Physics Cycle
+
+        //   private void DownDashPhysics(float delay)
+        //  {
+        speed = 0;
+        StartCoroutine(PauseSpeed(.3f));
+
+        p_RigidBody2D.gravityScale = 0;
+        p_RigidBody2D.velocity = Vector2.down * downDashForce;
+        StartCoroutine(PauseGravity());
+    }
+
+    private void UpDash()
+    {
+        // Animation Cycle
+        animator.SetBool("upDash", true);
+        cape.UpDash = true;
+        cape.CanDash = false;
+        StartCoroutine(AnimationReload());
+
+        // Audio Cycle
+        playerAudio.PlayDashAudio();
+
+        // Logic Cycle
+        dashTimePassed = 0;
+
+        // Physics Cycle
+        p_RigidBody2D.velocity = Vector2.up * upDashForce;
+    }
+
+    IEnumerator AnimationReload()
     {
         yield return 0;
-        animator.SetBool("SecondJump", false);
+
+        animator.SetBool("jump1", false);
+        animator.SetBool("jump2", false);
+        animator.SetBool("lateralDash", false);
+        animator.SetBool("upDash", false);
+        animator.SetBool("downDash", false);
+        animator.SetBool("hardLanding", false);
+        animator.SetBool("softLanding", false);
+
+        cape.Jump1 = false;
+        cape.Jump2 = false;
+        cape.UpDash = false;
+        cape.DownDash = false;
+        cape.LateralDash = false;
     }
 
-    IEnumerator PauseGravity(float gravityDelay)
+    IEnumerator PauseGravity()
     {
         yield return new WaitForSeconds(gravityDelay);
         p_RigidBody2D.gravityScale = 2;
+    }
+
+    IEnumerator PauseSpeed(float speedDelay)
+    {
+        yield return new WaitForSeconds(speedDelay);
+        speed = 15;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -189,21 +298,11 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             isGrounded = true;
-            animator.SetBool("IsGrounded", true);
-            jumpCount = 0;
-            animator.SetBool("Jumping", false);
-            animator.SetBool("SecondJump", false);
-
         }
 
         if (collision.gameObject.tag == "Platform")
         {
             isGrounded = true;
-            animator.SetBool("IsGrounded", true);
-            jumpCount = 0;
-            animator.SetBool("Jumping", false);
-            animator.SetBool("SecondJump", false);
-
             platform = collision.gameObject;
         }
     }
@@ -212,17 +311,22 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ground")
         {
+            // Animation Cycle
+            animator.SetBool("isGrounded", false);
+
+            // Logic Cycle
             isGrounded = false;
-            animator.SetBool("IsGrounded", false);
 
         }
 
         if (collision.gameObject.tag == "Platform")
         {
+            // Animation Cycle
+            animator.SetBool("isGrounded", false);
+
+            // Logic Cycle
             isGrounded = false;
-            animator.SetBool("IsGrounded", false);
             platform = null;
         }
     }
-
 }
