@@ -130,7 +130,7 @@ public class PlayerMovement : MonoBehaviour
         // Controller Physics Execution
         if (jump)
         {
-            p_RigidBody2D.velocity = Vector2.up * jumpForce;
+            p_RigidBody2D.velocity = new Vector2(p_RigidBody2D.velocity.x, jumpForce);
             jump = false;
         }
     }
@@ -213,7 +213,7 @@ public class PlayerMovement : MonoBehaviour
 
         // Physics Cycle
         p_RigidBody2D.gravityScale = 0;
-        p_RigidBody2D.velocity = Vector2.right * rightDashForce;
+        p_RigidBody2D.velocity = new Vector2(rightDashForce, p_RigidBody2D.velocity.y);
         StartCoroutine(PauseGravity());
     }
 
@@ -240,7 +240,7 @@ public class PlayerMovement : MonoBehaviour
         StartCoroutine(PauseSpeed(.3f));
 
         p_RigidBody2D.gravityScale = 0;
-        p_RigidBody2D.velocity = Vector2.down * downDashForce;
+        p_RigidBody2D.velocity = new Vector2(p_RigidBody2D.velocity.x, -downDashForce);
         StartCoroutine(PauseGravity());
     }
 
@@ -259,7 +259,7 @@ public class PlayerMovement : MonoBehaviour
         dashTimePassed = 0;
 
         // Physics Cycle
-        p_RigidBody2D.velocity = Vector2.up * upDashForce;
+        p_RigidBody2D.velocity = new Vector2(p_RigidBody2D.velocity.x, upDashForce);
     }
 
     IEnumerator AnimationReload()
