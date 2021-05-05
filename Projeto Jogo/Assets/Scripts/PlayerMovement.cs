@@ -11,8 +11,11 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 p_velocity = Vector3.zero; // player velocity
     public float gravityDelay = 0.3f; // player gravity delay
 
-    // Physics for Controller
+    // Physics Method Call Flag
     private bool jump = false;
+    private bool lateralDash = false;
+    private bool upDash = false;
+    private bool downDash = false;
 
     // Running Attributes
     public bool running = false; // toggle running state
@@ -58,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
 
         // Setting Initial Attributes
         running = true; // WARNING: ALL TO 'FALSE' ON GAMEBUILD
+        animator.SetBool("running", true);
         cape.HasCape = true;
         cape.Running = true;
         // animator.SetBool("running", true);
@@ -71,16 +75,23 @@ public class PlayerMovement : MonoBehaviour
         float movement = speed * Time.fixedDeltaTime;
         Vector3 targetVelocity = Vector2.zero;
 
-        if (direction == Direction.Right && running)
+        if (running)
+            
         {
-            targetVelocity = new Vector2(movement * 10f, p_RigidBody2D.velocity.y);
-            sprites.flipX = false;
-        }
+            if (direction == Direction.Right)
+            {
+                targetVelocity = new Vector2(movement * 10f, p_RigidBody2D.velocity.y);
+                sprites.flipX = false;
+            }
 
-        if (direction == Direction.Left && running)
+            if (direction == Direction.Left)
+            {
+                targetVelocity = new Vector2(-(movement * 10f), p_RigidBody2D.velocity.y);
+                sprites.flipX = true;
+            }
+        } else
         {
-            targetVelocity = new Vector2(-(movement * 10f), p_RigidBody2D.velocity.y);
-            sprites.flipX = true;
+            cape.Running = false;
         }
 
         p_RigidBody2D.velocity = Vector3.SmoothDamp(p_RigidBody2D.velocity, targetVelocity, ref p_velocity, 0.05f);
@@ -100,15 +111,13 @@ public class PlayerMovement : MonoBehaviour
             cape.CanDash = true;
         }
 
-        // Airtime Count
+        // Airtime Counter
         if (!isGrounded)
         {
             airTime += Time.fixedDeltaTime;
-            Debug.Log(airTime);
         }
 
         // Grounding Check
-
         if (isGrounded)
         {
             // Animation Cycle
@@ -116,15 +125,28 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("jump1", false);
             animator.SetBool("jump2", false);
 
-            if (airTime > 1.5)
+            cape.IsGrounded = true;
+            cape.Jump1 = true;
+            cape.Jump2 = true;
+
+            if (airTime > 1.5) { 
                 animator.SetBool("hardLanding", true);
+                cape.HardLanding = true;
+            }
             else
+            {
                 animator.SetBool("softLanding", true);
+                cape.SoftLanding = true;
+            }
             StartCoroutine(AnimationReload());
 
             // Logic Cycle
             airTime = 0;
-            jumpCount = 0;
+        } 
+        else
+        {
+            // Animation Cycle
+            animator.SetBool("isGrounded", false);
         }
 
         // Controller Physics Execution
@@ -133,11 +155,34 @@ public class PlayerMovement : MonoBehaviour
             p_RigidBody2D.velocity = new Vector2(p_RigidBody2D.velocity.x, jumpForce);
             jump = false;
         }
+        if (lateralDash)
+        {
+            p_RigidBody2D.gravityScale = 0;
+            p_RigidBody2D.velocity = new Vector2(rightDashForce, 0);
+            StartCoroutine(PauseGravity());
+
+            lateralDash = false;
+        }
+        if (downDash)
+        {
+            speed = 0;
+            StartCoroutine(PauseSpeed(.3f));
+
+            p_RigidBody2D.gravityScale = 0;
+            p_RigidBody2D.velocity = new Vector2(p_RigidBody2D.velocity.x, -downDashForce);
+            StartCoroutine(PauseGravity());
+
+            downDash = false;
+        }
+        if (upDash)
+        {
+            p_RigidBody2D.velocity = new Vector2(p_RigidBody2D.velocity.x, upDashForce);
+            upDash = false;
+        }
     }
 
     private void Update()
     {
-
         // Inputs
         if (PlayerHasControl)
         {
@@ -181,11 +226,15 @@ public class PlayerMovement : MonoBehaviour
     private void Jump()
     {
         // Animation Cycle
-        if (jumpCount == 0)
-            animator.SetBool("jump1", true);
-        else
+        Debug.Log(jumpCount);   
+        if (jumpCount == 1)
+        {
             animator.SetBool("jump2", true);
-
+        }
+        else
+        {
+            animator.SetBool("jump1", true);
+        }
         StartCoroutine(AnimationReload());
 
         // Audio Cycle
@@ -193,6 +242,7 @@ public class PlayerMovement : MonoBehaviour
 
         // Logic Cycle
         jumpCount++;
+
         // Physics Cycle
         jump = true;
     }
@@ -212,9 +262,7 @@ public class PlayerMovement : MonoBehaviour
         dashTimePassed = 0;
 
         // Physics Cycle
-        p_RigidBody2D.gravityScale = 0;
-        p_RigidBody2D.velocity = new Vector2(rightDashForce, p_RigidBody2D.velocity.y);
-        StartCoroutine(PauseGravity());
+        lateralDash = true;
     }
 
     private void DownDash()
@@ -233,15 +281,7 @@ public class PlayerMovement : MonoBehaviour
         dashTimePassed = 0;
 
         // Physics Cycle
-
-        //   private void DownDashPhysics(float delay)
-        //  {
-        speed = 0;
-        StartCoroutine(PauseSpeed(.3f));
-
-        p_RigidBody2D.gravityScale = 0;
-        p_RigidBody2D.velocity = new Vector2(p_RigidBody2D.velocity.x, -downDashForce);
-        StartCoroutine(PauseGravity());
+        downDash = true;
     }
 
     private void UpDash()
@@ -259,7 +299,7 @@ public class PlayerMovement : MonoBehaviour
         dashTimePassed = 0;
 
         // Physics Cycle
-        p_RigidBody2D.velocity = new Vector2(p_RigidBody2D.velocity.x, upDashForce);
+        upDash = true;
     }
 
     IEnumerator AnimationReload()
@@ -297,13 +337,15 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ground")
         {
+            jumpCount = 0;
             isGrounded = true;
         }
 
         if (collision.gameObject.tag == "Platform")
         {
-            isGrounded = true;
+            jumpCount = 0;
             platform = collision.gameObject;
+            isGrounded = true;
         }
     }
 
@@ -311,22 +353,13 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ground")
         {
-            // Animation Cycle
-            animator.SetBool("isGrounded", false);
-
-            // Logic Cycle
             isGrounded = false;
-
         }
 
         if (collision.gameObject.tag == "Platform")
         {
-            // Animation Cycle
-            animator.SetBool("isGrounded", false);
-
-            // Logic Cycle
-            isGrounded = false;
             platform = null;
+            isGrounded = false;
         }
     }
 }

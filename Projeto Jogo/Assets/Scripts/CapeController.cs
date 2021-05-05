@@ -7,6 +7,7 @@ public class CapeController : MonoBehaviour
     // Animation States
     public bool HasCape { get; set; }
     public bool Running { get; set; }
+    public bool IsGrounded { get; set; }
     public bool Jump1 { get; set; }
     public bool Jump2 { get; set; }
     public bool Dropping { get; set; }
@@ -35,7 +36,6 @@ public class CapeController : MonoBehaviour
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (HasCape)
@@ -50,6 +50,10 @@ public class CapeController : MonoBehaviour
                 if (RechargingDash) animator.SetBool("recharging", true);
                 if (SoftLanding) animator.SetBool("softLanding", true);
                 if (HardLanding) animator.SetBool("hardLanding", true);
+            } 
+            else
+            {
+                animator.SetBool("running", false);
             }
         }
     }
