@@ -333,7 +333,7 @@ SpriteRenderer:
   m_SortingLayer: -3
   m_SortingOrder: 20
   m_Sprite: {fileID: 21300000, guid: c4b1d694c01a80a4ca6e32225b38f176, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.43137255}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -687,7 +687,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.8496566, y: 0.6000004, z: -1}
+  m_LocalPosition: {x: 1.613636, y: 0.6000004, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1147980132}
@@ -1044,7 +1044,7 @@ Transform:
   m_GameObject: {fileID: 886021269}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.99, y: 3.44, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children: []
   m_Father: {fileID: 1692574400}
   m_RootOrder: 0
@@ -1089,15 +1089,15 @@ SpriteRenderer:
   m_SortingLayerID: 1364714297
   m_SortingLayer: -1
   m_SortingOrder: 1
-  m_Sprite: {fileID: -102524876349858939, guid: 1584f8a3bd820de4d987f1e1397f75e1, type: 3}
+  m_Sprite: {fileID: 6455335370662321387, guid: f34058a8ccf65a84da919ab09d07a8d7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.5, y: 0.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
 --- !u!95 &886021272
@@ -3743,7 +3743,7 @@ Transform:
   m_GameObject: {fileID: 1692574398}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -4, y: -1, z: 0}
-  m_LocalScale: {x: 0.85, y: 0.85, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
   - {fileID: 886021270}
   - {fileID: 1781688880}
@@ -3833,7 +3833,8 @@ MonoBehaviour:
   upDashForce: 13
   downDashForce: 20
   rightDashForce: 70
-  cape: {fileID: 886021273}
+  hasCape: 0
+  animatorOverrider: {fileID: 22100000, guid: acd85752fd56ab64ea0e182ebd3ce3b0, type: 2}
 --- !u!114 &1692574404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4892,7 +4893,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2123315053}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.8496566, y: 0.6000004, z: -1}
+  m_LocalPosition: {x: 1.613636, y: 0.6000004, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1413753368}
