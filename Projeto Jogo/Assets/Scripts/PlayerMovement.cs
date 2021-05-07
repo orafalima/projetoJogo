@@ -23,12 +23,12 @@ public class PlayerMovement : MonoBehaviour
     public enum Direction { Right, Left }
     public Direction direction = Direction.Right; // direction which the player is going
     public bool running = false; // toggle running state
-    [Range(0, 60)] public float speed = 35; // speed of the running
+    [Range(0, 60)] public float speed = 15; // speed of the running
 
     // Jumping and Grounding
-    public int maxJumps = 1; // maximum jumps player can use
+    public int maxJumps = 2; // maximum jumps player can use
     public int jumpCount = 0; // how many jumps player has already used
-    public float jumpForce = 12; // force of jump
+    public float jumpForce = 10; // force of jump
     private bool isGrounded = false; // if player is on the ground/plaform
     private float airTime; // to control landing animation
     private GameObject platform { get; set; } // what platform player is colliding with
@@ -66,6 +66,8 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("running", true);
         cape.HasCape = true;
         cape.Running = true;
+        // animator.SetBool("running", true);
+
         dashTimePassed = dashCooldown;
     }
 
@@ -85,7 +87,8 @@ public class PlayerMovement : MonoBehaviour
                 targetVelocity = new Vector2(movement * 10f, p_RigidBody2D.velocity.y);
                 sprites.flipX = false;
             }
-            else
+
+            if (direction == Direction.Left)
             {
                 targetVelocity = new Vector2(-(movement * 10f), p_RigidBody2D.velocity.y);
                 sprites.flipX = true;
@@ -242,6 +245,9 @@ public class PlayerMovement : MonoBehaviour
                     LateralDash();
             }
         }
+
+        //FallingOrRising();
+        Debug.Log(yDirection);
     }
 
     private void Jump()
@@ -271,7 +277,7 @@ public class PlayerMovement : MonoBehaviour
     {
         animator.SetBool("dropping", true);
         StartCoroutine(AnimationReload());
-
+        
         if (platform != null)
             platform.GetComponent<EdgeCollider2D>().enabled = false;
     }
@@ -308,7 +314,7 @@ public class PlayerMovement : MonoBehaviour
 
         // Logic Cycle
         dashTimePassed = 0;
-        airTime += 1.5f; // deixar aqui ou nï¿½o funciona!
+        airTime += 1.5f; // deixar aqui ou não funciona!
 
         // Physics Cycle
         downDash = true;
@@ -373,12 +379,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.tag == "Ground")
         {
             isGrounded = true;
         }
 
-        if (collision.gameObject.CompareTag("Platform"))
+        if (collision.gameObject.tag == "Platform")
         {
             platform = collision.gameObject;
             isGrounded = true;
@@ -387,12 +393,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.tag == "Ground")
         {
             isGrounded = false;
         }
 
-        if (collision.gameObject.CompareTag("Platform"))
+        if (collision.gameObject.tag == "Platform")
         {
             platform = null;
             isGrounded = false;
