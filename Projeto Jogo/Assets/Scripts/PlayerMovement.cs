@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // Controller
+    // Player Controller
     private bool PlayerHasControl { get; set; }
 
     // Physics
@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
     public float rightDashForce = 10;
 
     // Cape Attributes
-    public CapeController cape;
+    public bool hasCape;
 
     // Audio Controller
     private PlayerAudio playerAudio;
@@ -50,19 +50,25 @@ public class PlayerMovement : MonoBehaviour
     // Animation & Sprites Controller
     private Animator animator;
     private SpriteRenderer sprites;
+    public AnimatorOverrideController animatorOverrider;
 
     private void Awake()
     {
+        // WARNING: ALL TO 'FALSE' ON GAMEBUILD
+        // Setting Initial Attributes
         PlayerHasControl = true;
+        running = true; 
+        hasCape = true;
 
         // Getting Object References
         p_RigidBody2D = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
         sprites = GetComponent<SpriteRenderer>();
         playerAudio = GetComponent<PlayerAudio>();
+        animator = GetComponent<Animator>();
 
-        // Setting Initial Attributes
-        running = true; // WARNING: ALL TO 'FALSE' ON GAMEBUILD
+        // Setting Animator Controller for Cape
+        if (!hasCape) animator.runtimeAnimatorController = animatorOverrider;
+
         animator.SetBool("running", true);
         cape.HasCape = true;
         cape.Running = true;
@@ -91,10 +97,6 @@ public class PlayerMovement : MonoBehaviour
                 sprites.flipX = true;
             }
         }
-        else
-        {
-            cape.Running = false;
-        }
 
         p_RigidBody2D.velocity = Vector3.SmoothDamp(p_RigidBody2D.velocity, targetVelocity, ref p_velocity, 0.05f);
 
@@ -103,7 +105,6 @@ public class PlayerMovement : MonoBehaviour
         {
             dashTimePassed += Time.fixedDeltaTime;
             canDash = false;
-            cape.CanDash = false;
             animator.SetBool("lateralDash", false);
             animator.SetBool("upDash", false);
             animator.SetBool("downDash", false);
@@ -112,7 +113,6 @@ public class PlayerMovement : MonoBehaviour
         {
             dashTimePassed = dashCooldown;
             canDash = true;
-            cape.CanDash = true;
         }
 
         // Airtime Counter
@@ -129,20 +129,11 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("jump1", false);
             animator.SetBool("jump2", false);
 
-            cape.IsGrounded = true;
-            cape.Jump1 = true;
-            cape.Jump2 = true;
-
             if (airTime > 1.5)
-            {
                 animator.SetBool("hardLanding", true);
-                cape.HardLanding = true;
-            }
             else if (airTime > 0.05 && airTime <= 1.5)
-            {
                 animator.SetBool("softLanding", true);
-                cape.SoftLanding = true;
-            }
+
             StartCoroutine(AnimationReload());
 
             jumpCount = 0;
@@ -280,8 +271,6 @@ public class PlayerMovement : MonoBehaviour
     {
         // Animation Cycle
         animator.SetBool("lateralDash", true);
-        cape.LateralDash = true;
-        cape.CanDash = false;
         StartCoroutine(AnimationReload());
 
         // Audio Cycle
@@ -299,8 +288,6 @@ public class PlayerMovement : MonoBehaviour
         // Animation Cycle
         animator.SetBool("downDash", true);
         animator.SetBool("hardLanding", true);
-        cape.DownDash = true;
-        cape.CanDash = false;
         StartCoroutine(AnimationReload());
 
         // Audio Cycle
@@ -318,8 +305,6 @@ public class PlayerMovement : MonoBehaviour
     {
         // Animation Cycle
         animator.SetBool("upDash", true);
-        cape.UpDash = true;
-        cape.CanDash = false;
         StartCoroutine(AnimationReload());
 
         // Audio Cycle
@@ -349,12 +334,6 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("hardLanding", false);
         animator.SetBool("softLanding", false);
         animator.SetBool("dropping", false);
-
-        cape.Jump1 = false;
-        cape.Jump2 = false;
-        cape.UpDash = false;
-        cape.DownDash = false;
-        cape.LateralDash = false;
     }
 
     IEnumerator PauseGravity()

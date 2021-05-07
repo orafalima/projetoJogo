@@ -42,6 +42,8 @@ public class CapeController : MonoBehaviour
         {
             if (Running)
             {
+                animator.SetBool("running", true);
+
                 if (CanDash) animator.SetBool("canDash", true);
                 if (OnAir) animator.SetBool("onAir", true);
                 if (Jump1) animator.SetBool("jump1", true);
