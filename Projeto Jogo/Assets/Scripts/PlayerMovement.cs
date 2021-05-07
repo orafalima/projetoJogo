@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     public Direction direction = Direction.Right; // direction which the player is going
     public bool running = false; // toggle running state
     [Range(0, 60)] public float speed = 15; // speed of the running
+    private float currentSpeed;
 
     // Jumping and Grounding
     public int maxJumps = 2; // maximum jumps player can use
@@ -34,7 +35,8 @@ public class PlayerMovement : MonoBehaviour
     private GameObject platform { get; set; } // what platform player is colliding with
 
     // Dash attributtes
-    private bool canDash = true;
+    public bool canDash;
+    private bool readyToDash;
     private float dashTimePassed = 0; // counter for Dash Recharge
     public float dashCooldown = 2f;
     public float upDashForce = 13;
@@ -52,13 +54,20 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer sprites;
     public AnimatorOverrideController animatorOverrider;
 
+    public bool died { get; set; }
+
     private void Awake()
     {
         // WARNING: ALL TO 'FALSE' ON GAMEBUILD
         // Setting Initial Attributes
         PlayerHasControl = true;
-        running = true; 
+        running = true;
         hasCape = true;
+
+        canDash = true;
+        died = false;
+
+        currentSpeed = speed;
 
         // Getting Object References
         p_RigidBody2D = GetComponent<Rigidbody2D>();
@@ -72,6 +81,8 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("running", true);
 
         dashTimePassed = dashCooldown;
+
+        currentSpeed = speed;
     }
 
     void FixedUpdate()
@@ -100,20 +111,24 @@ public class PlayerMovement : MonoBehaviour
 
         p_RigidBody2D.velocity = Vector3.SmoothDamp(p_RigidBody2D.velocity, targetVelocity, ref p_velocity, 0.05f);
 
-        // Dash cooldown
-        if (dashTimePassed < dashCooldown)
+        if (canDash)
         {
-            dashTimePassed += Time.fixedDeltaTime;
-            canDash = false;
-            animator.SetBool("lateralDash", false);
-            animator.SetBool("upDash", false);
-            animator.SetBool("downDash", false);
+            // Dash cooldown
+            if (dashTimePassed < dashCooldown)
+            {
+                dashTimePassed += Time.fixedDeltaTime;
+                readyToDash = false;
+                animator.SetBool("lateralDash", false);
+                animator.SetBool("upDash", false);
+                animator.SetBool("downDash", false);
+            }
+            else
+            {
+                dashTimePassed = dashCooldown;
+                readyToDash = true;
+            }
         }
-        else
-        {
-            dashTimePassed = dashCooldown;
-            canDash = true;
-        }
+        
 
         // Airtime Counter
         if (!isGrounded)
@@ -136,7 +151,6 @@ public class PlayerMovement : MonoBehaviour
 
             StartCoroutine(AnimationReload());
 
-            jumpCount = 0;
             airTime = 0;
         }
         else
@@ -215,21 +229,21 @@ public class PlayerMovement : MonoBehaviour
             // Up dash movement
             if (Input.GetKeyDown(KeyCode.W))
             {
-                if (canDash && !isGrounded)
+                if (readyToDash && !isGrounded)
                     UpDash();
             }
 
             // Down dash movement
             if (Input.GetKeyDown(KeyCode.S))
             {
-                if (canDash && !isGrounded)
+                if (readyToDash && !isGrounded)
                     DownDash();
             }
 
             // Right dash movement
             if (Input.GetKeyDown(KeyCode.D))
             {
-                if (canDash && !isGrounded)
+                if (readyToDash && !isGrounded)
                     LateralDash();
             }
         }
@@ -349,18 +363,29 @@ public class PlayerMovement : MonoBehaviour
         speed = currentSpeed;
     }
 
+    public void StopWalking()
+    {
+        speed = 0;
+    }
+
+    public void ResumeWalking()
+    {
+        speed = currentSpeed;
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Ground")
         {
             isGrounded = true;
+            jumpCount = 0;
         }
 
         if (collision.gameObject.tag == "Platform")
         {
             platform = collision.gameObject;
             isGrounded = true;
+            jumpCount = 0;
         }
     }
 
