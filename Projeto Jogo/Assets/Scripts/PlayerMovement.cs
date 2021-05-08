@@ -172,4 +172,9 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public bool getDashCooldown()
+    {
+        return this.canDash;
+    }
+
 }
