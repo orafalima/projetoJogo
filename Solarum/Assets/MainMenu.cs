@@ -14,8 +14,7 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         // Scene change
-        SceneManager.UnloadSceneAsync((int)ScenesIndexes.MENU);
-        SceneManager.LoadSceneAsync((int)ScenesIndexes.LEVEL_0, LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync((int)ScenesIndexes.LEVEL_0, LoadSceneMode.Single);
     }
 
     // Exit game - desktop builds only
@@ -27,8 +26,7 @@ public class MainMenu : MonoBehaviour
     public void ShowCredits()
     {
         // Scene change
-        SceneManager.UnloadSceneAsync((int)ScenesIndexes.MENU);
-        SceneManager.LoadSceneAsync((int)ScenesIndexes.CREDITS, LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync((int)ScenesIndexes.CREDITS, LoadSceneMode.Single);
     }
 
     public void HoverStart()
@@ -101,7 +99,7 @@ public class MainMenu : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.Return))
         {
             SoundManager.Play("select");
             switch (selected)

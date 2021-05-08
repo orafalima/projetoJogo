@@ -5,8 +5,7 @@ public class CreditsScript : MonoBehaviour
 {
     public void Back()
     {
-        SceneManager.UnloadSceneAsync((int)ScenesIndexes.CREDITS);
-        SceneManager.LoadSceneAsync((int)ScenesIndexes.MENU, LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync((int)ScenesIndexes.MENU, LoadSceneMode.Single);
     }
 
     void Update()
