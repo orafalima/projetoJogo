@@ -11,16 +11,4 @@ public class GameManager : MonoBehaviour
 
         SceneManager.LoadSceneAsync((int)ScenesIndexes.MENU, LoadSceneMode.Additive);
     }
-
-    public void LoadGame()
-    {
-        SceneManager.UnloadSceneAsync((int)ScenesIndexes.MENU);
-        SceneManager.LoadSceneAsync((int)ScenesIndexes.LEVEL_0, LoadSceneMode.Additive);
-    }
-
-    public void ExitGame()
-    {
-        Application.Quit();
-    }
-
 }
