@@ -6,24 +6,53 @@ using UnityEngine.UI;
 public class HUD : MonoBehaviour
 {
 
-    public Image dashIcon;
+    public Image DashIcon;
     PlayerMovement player;
-    public Image dashOnCooldown;
+    public Image CooldownCircle;
+    private float cooldownTime;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindObjectOfType<PlayerMovement>();
+        cooldownTime = player.dashCooldown;
     }
 
     // Update is called once per frame
     void Update()
     {
-        bool dash = player.getDashCooldown();
+        bool dash = player.getCanDash();
+
+        this.CooldownCircle.enabled = false;
+
+        this.showCooldown(dash);
+
+    }
+
+    private void showCooldown(bool dash)
+    {
+
+        Color color = this.DashIcon.color;
 
         if (!dash)
         {
-            dashIcon.sprite.
+            color.a = 0.5f;
+            this.DashIcon.color = color;
+            this.CooldownCircle.enabled = true;
+            this.CooldownCircle.fillAmount -= 1.0f / cooldownTime * Time.deltaTime;
+            
+        }
+        else
+        {
+            if(this.CooldownCircle.fillAmount == 0f)
+            {
+                this.CooldownCircle.fillAmount += 1.0f;
+            }
+            this.CooldownCircle.enabled = false;
+            color.a = 1.0f;
+            this.DashIcon.color = color;
         }
     }
+
+
 }
