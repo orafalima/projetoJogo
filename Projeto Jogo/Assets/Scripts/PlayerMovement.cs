@@ -7,8 +7,8 @@ public class PlayerMovement : MonoBehaviour
     private bool PlayerHasControl { get; set; }
 
     // Physics
-    private enum yMovement { Falling, Rising, Idle }
-    private yMovement yDirection;
+    private enum YMovement { Falling, Rising, Idle }
+    private YMovement yDirection;
     private Rigidbody2D p_RigidBody2D = null; // player rigid body
     private Vector3 p_velocity = Vector3.zero; // player velocity
     public float gravityDelay = 0.3f; // player gravity delay
@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce = 10; // force of jump
     private bool isGrounded = false; // if player is on the ground/plaform
     private float airTime; // to control landing animation
-    private GameObject platform { get; set; } // what platform player is colliding with
+    private GameObject Platform { get; set; } // what platform player is colliding with
 
     // Dash attributtes
     public bool canDash;
@@ -54,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer sprites;
     public AnimatorOverrideController animatorOverrider;
 
-    public bool died { get; set; }
+    public bool Died { get; set; }
 
     private void Awake()
     {
@@ -65,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
         hasCape = true;
 
         canDash = true;
-        died = false;
+        Died = false;
 
         currentSpeed = speed;
 
@@ -137,7 +137,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Grounding Check
-        if (isGrounded && yDirection != yMovement.Rising)
+        if (isGrounded && yDirection != YMovement.Rising)
         {
             // Animation Cycle
             animator.SetBool("isGrounded", true);
@@ -195,16 +195,16 @@ public class PlayerMovement : MonoBehaviour
     {
         if (p_RigidBody2D.velocity.y > 6)
         {
-            yDirection = yMovement.Rising;
+            yDirection = YMovement.Rising;
 
         }
         else if (p_RigidBody2D.velocity.y < -6)
         {
-            yDirection = yMovement.Falling;
+            yDirection = YMovement.Falling;
         }
         else if (p_RigidBody2D.velocity.y == 0 && isGrounded)
         {
-            yDirection = yMovement.Idle;
+            yDirection = YMovement.Idle;
         }
     }
 
@@ -277,8 +277,8 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("dropping", true);
         StartCoroutine(AnimationReload());
         
-        if (platform != null)
-            platform.GetComponent<EdgeCollider2D>().enabled = false;
+        if (Platform != null)
+            Platform.GetComponent<EdgeCollider2D>().enabled = false;
     }
 
     private void LateralDash()
@@ -309,7 +309,7 @@ public class PlayerMovement : MonoBehaviour
 
         // Logic Cycle
         dashTimePassed = 0;
-        airTime += 1.5f; // deixar aqui ou não funciona!
+        airTime += 1.5f; // deixar aqui ou nï¿½o funciona!
 
         // Physics Cycle
         downDash = true;
@@ -329,11 +329,6 @@ public class PlayerMovement : MonoBehaviour
 
         // Physics Cycle
         upDash = true;
-    }
-
-    IEnumerator Wait(float seconds)
-    {
-        yield return new WaitForSeconds(seconds);
     }
 
     IEnumerator AnimationReload()
@@ -375,15 +370,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ground")
+        if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
             jumpCount = 0;
         }
 
-        if (collision.gameObject.tag == "Platform")
+        if (collision.gameObject.CompareTag("Platform"))
         {
-            platform = collision.gameObject;
+            Platform = collision.gameObject;
             isGrounded = true;
             jumpCount = 0;
         }
@@ -391,14 +386,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ground")
+        if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = false;
         }
 
-        if (collision.gameObject.tag == "Platform")
+        if (collision.gameObject.CompareTag("Platform"))
         {
-            platform = null;
+            Platform = null;
             isGrounded = false;
         }
     }

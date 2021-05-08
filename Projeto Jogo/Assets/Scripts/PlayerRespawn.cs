@@ -26,7 +26,7 @@ public class PlayerRespawn : MonoBehaviour
     {
         score.ResetScore();
 
-        player.GetComponent<PlayerMovement>().died = true;
+        player.GetComponent<PlayerMovement>().Died = true;
         player.GetComponent<PlayerMovement>().StopWalking();
         player.GetComponent<Rigidbody2D>().simulated = false;
 
@@ -37,7 +37,7 @@ public class PlayerRespawn : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
 
-        player.GetComponent<PlayerMovement>().died = false;
+        player.GetComponent<PlayerMovement>().Died = false;
         player.GetComponent<PlayerMovement>().ResumeWalking();
         player.GetComponent<Rigidbody2D>().simulated = true;
 

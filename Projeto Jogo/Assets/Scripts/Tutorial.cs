@@ -107,7 +107,7 @@ public class Tutorial : MonoBehaviour
             repeat = false;
         }
 
-        if (player.died)
+        if (player.Died)
         {
             instructionCount++;
             timePassed = 0;
