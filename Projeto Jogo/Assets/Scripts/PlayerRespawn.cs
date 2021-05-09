@@ -29,6 +29,7 @@ public class PlayerRespawn : MonoBehaviour
         player.GetComponent<PlayerMovement>().IsDead = true;
         player.GetComponent<PlayerMovement>().StopRunning();
         player.GetComponent<Rigidbody2D>().simulated = false;
+        player.GetComponent<PlayerMovement>().PlayerHasControl = false;
 
         StartCoroutine(ResetPosition());
     }
@@ -40,6 +41,7 @@ public class PlayerRespawn : MonoBehaviour
         player.GetComponent<PlayerMovement>().IsDead = false;
         player.GetComponent<PlayerMovement>().ResumeRunning();
         player.GetComponent<Rigidbody2D>().simulated = true;
+        player.GetComponent<PlayerMovement>().PlayerHasControl = true;
 
         player.transform.position = deathSpawnPoint.position;
     }

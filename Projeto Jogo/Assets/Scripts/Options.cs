@@ -29,7 +29,7 @@ public class Options : MonoBehaviour
 
     public void LoadGame()
     {
-        GameManager.instance.LoadGame();
+        //GameManager.instance.LoadGame();
     }
 
     public void PauseGame()
