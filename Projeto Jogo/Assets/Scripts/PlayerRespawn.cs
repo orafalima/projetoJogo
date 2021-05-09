@@ -1,30 +1,22 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using System.Threading;
 
 public class PlayerRespawn : MonoBehaviour
 
 {
-    public Score score;
-    public GameObject player;
-    public Transform deathSpawnPoint;
+    private GameObject player;
+    private GameObject deathSpawnPoint;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-       
+        deathSpawnPoint = GameObject.Find("Spawn");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        score.ResetScore();
+        GameManager.instance.ResetStarScore();
 
         player.GetComponent<PlayerMovement>().IsDead = true;
         player.GetComponent<PlayerMovement>().StopRunning();
@@ -36,13 +28,13 @@ public class PlayerRespawn : MonoBehaviour
 
     IEnumerator ResetPosition()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0);
 
         player.GetComponent<PlayerMovement>().IsDead = false;
         player.GetComponent<PlayerMovement>().ResumeRunning();
         player.GetComponent<Rigidbody2D>().simulated = true;
         player.GetComponent<PlayerMovement>().PlayerHasControl = true;
 
-        player.transform.position = deathSpawnPoint.position;
+        player.transform.position = deathSpawnPoint.transform.position;
     }
 }

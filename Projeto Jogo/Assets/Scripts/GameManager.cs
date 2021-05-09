@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     private int score = 0;
     private int totalStarCount = 0;
     private int totalScore = 0;
-    private int level = 0;
+    private int Level = 0;
 
     private void Awake()
     {
@@ -17,47 +17,77 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadSceneAsync((int)ScenesIndexes.MENU, LoadSceneMode.Additive);
     }
 
-   public void Play(string sound)
+    // Load first level scene
+    public void PlayGame()
+    {
+        GameManager.instance.Play("select");
+        // Scene change
+        SceneManager.UnloadSceneAsync((int)ScenesIndexes.MENU);
+        SceneManager.LoadSceneAsync((int)ScenesIndexes.LEVEL_1, LoadSceneMode.Additive);
+    }
+
+    // Exit game - desktop builds only
+    public void ExitGame()
+    {
+        GameManager.instance.Play("select");
+        Application.Quit();
+    }
+
+    public void ShowCredits()
+    {
+        GameManager.instance.Play("select");
+        // Scene change
+        SceneManager.UnloadSceneAsync((int)ScenesIndexes.MENU);
+        SceneManager.LoadSceneAsync((int)ScenesIndexes.CREDITS, LoadSceneMode.Additive);
+    }
+
+    public void Play(string sound)
     {
         SoundManager.Play(sound);
     }
 
-    public void addStar()
+    public void AddStar()
     {
         starCount++;
     }
 
-    public int getStar()
+    public int GetStar()
     {
         return starCount;
     }
 
-    public void addScore(int newScore)
+    public void AddScore(int newScore)
     {
         score += newScore;
     }
 
-    public int getScore()
+    public int GetScore()
     {
         return score;
     }
 
-    public int getTotalScore()
+    public int GetTotalScore()
     {
         return totalScore;
     }
 
-    public int getTotalStar()
+    public int GetTotalStar()
     {
         return totalStarCount;
     }
 
-    public void nextLevel()
+    public void NextLevel()
     {
         totalStarCount += starCount;
         starCount = 0;
         totalScore += score;
         score = 0;
-        level++;
+        Level++;
+    }
+
+    public void ResetStarScore()
+    {
+        score = 0;
+        starCount = 0;
     }
 }

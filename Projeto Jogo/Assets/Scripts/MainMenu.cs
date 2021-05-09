@@ -12,29 +12,6 @@ public class MainMenu : MonoBehaviour
 
     private int selected = 0;
 
-    // Load first level scene
-    public void PlayGame()
-    {
-        GameManager.instance.Play("select");
-        // Scene change
-        SceneManager.UnloadSceneAsync((int)ScenesIndexes.MENU);
-        SceneManager.LoadSceneAsync((int)ScenesIndexes.LEVEL_0, LoadSceneMode.Additive);
-    }
-
-    // Exit game - desktop builds only
-    public void ExitGame()
-    {
-        GameManager.instance.Play("select");
-        Application.Quit();
-    }
-
-    public void ShowCredits()
-    {
-        GameManager.instance.Play("select");
-        // Scene change
-        SceneManager.UnloadSceneAsync((int)ScenesIndexes.MENU);
-        SceneManager.LoadSceneAsync((int)ScenesIndexes.CREDITS, LoadSceneMode.Additive);
-    }
 
     public void HoverStart()
     {
@@ -111,13 +88,13 @@ public class MainMenu : MonoBehaviour
             switch (selected)
             {
                 case 0:
-                    PlayGame();
+                    GameManager.instance.PlayGame();
                     break;
                 case 1:
-                    ShowCredits();
+                    GameManager.instance.ShowCredits();
                     break;
                 case 2:
-                    ExitGame();
+                    GameManager.instance.ExitGame();
                     break;
             }
         }
