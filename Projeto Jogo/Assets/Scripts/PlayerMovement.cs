@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     // Player Controller
-    private bool PlayerHasControl { get; set; }
+    public bool PlayerHasControl { get; set; }
 
     // Physics
     private Rigidbody2D p_RigidBody2D = null; // player rigid body
@@ -276,7 +276,7 @@ public class PlayerMovement : MonoBehaviour
 
         // Logic Cycle
         dashTimePassed = 0;
-        airTime += 1.5f; // deixar aqui ou não funciona!
+        airTime += 1.5f; // deixar aqui ou nï¿½o funciona!
 
         // Physics Cycle
         downDash = true;
