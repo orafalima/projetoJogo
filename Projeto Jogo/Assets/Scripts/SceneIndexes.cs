@@ -6,5 +6,6 @@ public enum ScenesIndexes
 {
     MANAGER = 0,
     MENU = 1,
-    LEVEL_0 = 2
+    CREDITS = 2,
+    LEVEL_0 = 3
 }

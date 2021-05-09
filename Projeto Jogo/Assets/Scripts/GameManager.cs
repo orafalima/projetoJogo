@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,15 +12,8 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadSceneAsync((int)ScenesIndexes.MENU, LoadSceneMode.Additive);
     }
 
-    public void LoadGame()
+   public void Play(string sound)
     {
-        SceneManager.UnloadSceneAsync((int)ScenesIndexes.MENU);
-        SceneManager.LoadSceneAsync((int)ScenesIndexes.LEVEL_0, LoadSceneMode.Additive);
+        SoundManager.Play(sound);
     }
-
-    public void ExitGame()
-    {
-        Application.Quit();
-    }
-
 }
