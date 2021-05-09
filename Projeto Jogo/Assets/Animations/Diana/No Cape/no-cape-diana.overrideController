@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: no-cape-diana
+  m_Controller: {fileID: 9100000, guid: 66885616690ec8544bba4f38c2a94c0c, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 14e7c98ef57ba0a4ebde7fdeb65d7bf4, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: de7c9ebdaf2bd964ea29804559be2f7b, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 8f2ae169211caac488439f2e1c5532df, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 16f2d95980d0b5340acbc9a5915e289d, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 7502882ca23931b46a56db6a2234f397, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: f40a4a534dbdf9441982eec547d576c4, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 923d44f37d545634097ca73211f5a1a2, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: b32d3f48e144fec4bba9a7aaf7b19cb2, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: ec9239622bfc19c4f8517545c08bfc99, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e8e4e79749ad1314d9818f74605c4866, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 409699f79896a654297aaa5ca8153c02, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: b66e1230eaafe2b4a8036f3a3c066bdb, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 4354953ea99e9ec46ac5c7170a788866, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 4816f4df073651842b22bcff874008d5, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: e6fe2bab406446a41a9e5e7aceda67db, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 4fa8f386dd0c5bc4d99dbc56359c80ec, type: 2}
