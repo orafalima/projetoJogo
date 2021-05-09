@@ -6,14 +6,13 @@ using UnityEngine.UI;
 public class HUD : MonoBehaviour
 {
 
-    public Image DashIcon;
-    public Image CooldownCircle;
-    public Image Meteoro1;
-    public Image Meteoro2;
-    public Image MeteoroFull;
+    public Image BarFill;
+    public Image Meteor;
     private float cooldownTime;
+    private int totalStars;
     PlayerMovement player;
     CollectStar stars;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +20,8 @@ public class HUD : MonoBehaviour
         player = GameObject.FindObjectOfType<PlayerMovement>();
         stars = GameObject.FindObjectOfType<CollectStar>();
         cooldownTime = player.dashCooldown;
+        totalStars = GameObject.FindGameObjectsWithTag("Star").Length;
+        this.Meteor.fillAmount -= 1.0f;
     }
 
     // Update is called once per frame
@@ -30,51 +31,34 @@ public class HUD : MonoBehaviour
 
         int starNum = stars.getStarCount();
 
-        this.CooldownCircle.enabled = false;
-
-        this.showCooldown(dash);
+        this.cooldownBar(dash);
 
         this.updateMeteor(starNum);
+
     }
 
-    private void showCooldown(bool dash)
+    private void cooldownBar(bool dash)
     {
 
-        Color color = this.DashIcon.color;
         if (!dash)
         {
-            color.a = 0.5f;
-            this.DashIcon.color = color;
-            this.CooldownCircle.enabled = true;
-            this.CooldownCircle.fillAmount -= 1.0f / cooldownTime * Time.deltaTime;
+            if(this.BarFill.fillAmount >= 1.0f)
+            {
+                this.BarFill.fillAmount -= 1.0f;
+            }
+            
+            this.BarFill.fillAmount += 1.0f / cooldownTime * Time.deltaTime;
             
         }
         else
         {
-            if(this.CooldownCircle.fillAmount == 0f)
-            {
-                this.CooldownCircle.fillAmount += 1.0f; 
-            }
-            this.CooldownCircle.enabled = false;
-            color.a = 1.0f;
-            this.DashIcon.color = color;
+            this.BarFill.fillAmount += 1.0f;
         }
     }
 
     private void updateMeteor(int stars)
     {
-        switch (stars)
-        {
-            case 1:
-                this.Meteoro1.enabled = true;
-                break;
-            case 2:
-                this.Meteoro2.enabled = true;
-                break;
-            case 3:
-                this.MeteoroFull.enabled = true;
-                break;
-        }
+        this.Meteor.fillAmount = (1.0f / totalStars) * stars;
     }
 
 
