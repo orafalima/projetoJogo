@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     // Player Controller
-    private bool PlayerHasControl { get; set; }
+    public bool PlayerHasControl { get; set; }
 
     // Physics
     private enum yMovement { Falling, Rising, Idle }
