@@ -35,14 +35,14 @@ public class Options : MonoBehaviour
     public void PauseGame()
     {
         player.GetComponent<Animator>().speed = 0;
-        player.GetComponent<PlayerMovement>().StopWalking();
+        player.GetComponent<PlayerMovement>().StopRunning();
         score.StopCounting();
     }
 
     public void ResumeGame()
     {
         player.GetComponent<Animator>().speed = 1;
-        player.GetComponent<PlayerMovement>().ResumeWalking();
+        player.GetComponent<PlayerMovement>().ResumeRunning();
         score.ResumeCounting();
     }
 

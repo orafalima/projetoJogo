@@ -1,37 +1,37 @@
 fileFormatVersion: 2
-guid: 0a22a9075aab80b429ee9a2fe9c50770
+guid: b277c05cf8c38184a98b5523a1be93d6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8390183919245601406
-    second: runArtboard 1_0
+      213: -4521805683979584335
+    second: no-cape-diana-soft-landing_0
   - first:
-      213: 2864087872075838039
-    second: runArtboard 1_1
+      213: 7148805623237078957
+    second: no-cape-diana-soft-landing_1
   - first:
-      213: 2998593359997944935
-    second: runArtboard 1_2
+      213: 5521677979531743859
+    second: no-cape-diana-soft-landing_2
   - first:
-      213: -4199521386784096182
-    second: runArtboard 1_3
+      213: 9147926123647343739
+    second: no-cape-diana-soft-landing_3
   - first:
-      213: -1330285891481953664
-    second: runArtboard 1_4
+      213: 6801776606379231677
+    second: no-cape-diana-soft-landing_4
   - first:
-      213: -7234852948102276780
-    second: runArtboard 1_5
+      213: 8276941646595085827
+    second: no-cape-diana-soft-landing_5
   - first:
-      213: 8369479929304261861
-    second: runArtboard 1_6
+      213: -1949389034954177113
+    second: no-cape-diana-soft-landing_6
   - first:
-      213: -5258068729087035028
-    second: runArtboard 1_7
+      213: -2391071132072625128
+    second: no-cape-diana-soft-landing_7
   - first:
-      213: 5177439853085441660
-    second: runArtboard 1_8
+      213: -8386750390983914255
+    second: no-cape-diana-soft-landing_8
   - first:
-      213: 7543048873971977997
-    second: runArtboard 1_9
+      213: 7486420569020572694
+    second: no-cape-diana-soft-landing_9
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -145,31 +145,31 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: runArtboard 1_0
+      name: no-cape-diana-soft-landing_0
       rect:
         serializedVersion: 2
         x: 0
         y: 200
         width: 200
-        height: 200
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 250
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7a24da42dbef6470800000000000000
-      internalID: 8390183919245601406
+      spriteID: 1bcfd0f10b15f31c0800000000000000
+      internalID: -4521805683979584335
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: runArtboard 1_1
+      name: no-cape-diana-soft-landing_1
       rect:
         serializedVersion: 2
-        x: 200
+        x: 201
         y: 200
         width: 200
         height: 200
@@ -180,14 +180,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 752b59cbeb84fb720800000000000000
-      internalID: 2864087872075838039
+      spriteID: daf6c5d96d8a53360800000000000000
+      internalID: 7148805623237078957
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: runArtboard 1_2
+      name: no-cape-diana-soft-landing_2
       rect:
         serializedVersion: 2
         x: 400
@@ -201,14 +201,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 764c58016c42d9920800000000000000
-      internalID: 2998593359997944935
+      spriteID: 37216160ed0f0ac40800000000000000
+      internalID: 5521677979531743859
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: runArtboard 1_3
+      name: no-cape-diana-soft-landing_3
       rect:
         serializedVersion: 2
         x: 600
@@ -222,14 +222,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a40041a7c8d48b5c0800000000000000
-      internalID: -4199521386784096182
+      spriteID: b7c14877756f3fe70800000000000000
+      internalID: 9147926123647343739
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: runArtboard 1_4
+      name: no-cape-diana-soft-landing_4
       rect:
         serializedVersion: 2
         x: 800
@@ -243,14 +243,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 08a1184a700e98de0800000000000000
-      internalID: -1330285891481953664
+      spriteID: db9cbc049c3c46e50800000000000000
+      internalID: 6801776606379231677
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: runArtboard 1_5
+      name: no-cape-diana-soft-landing_5
       rect:
         serializedVersion: 2
         x: 0
@@ -264,14 +264,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4591d2a5393a89b90800000000000000
-      internalID: -7234852948102276780
+      spriteID: 306dfef039a9dd270800000000000000
+      internalID: 8276941646595085827
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: runArtboard 1_6
+      name: no-cape-diana-soft-landing_6
       rect:
         serializedVersion: 2
         x: 200
@@ -285,14 +285,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e421fcf6ad562470800000000000000
-      internalID: 8369479929304261861
+      spriteID: 7a5c382400162f4e0800000000000000
+      internalID: -1949389034954177113
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: runArtboard 1_7
+      name: no-cape-diana-soft-landing_7
       rect:
         serializedVersion: 2
         x: 400
@@ -306,14 +306,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c697d2e69569707b0800000000000000
-      internalID: -5258068729087035028
+      spriteID: 81cbe1c497531ded0800000000000000
+      internalID: -2391071132072625128
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: runArtboard 1_8
+      name: no-cape-diana-soft-landing_8
       rect:
         serializedVersion: 2
         x: 600
@@ -327,14 +327,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7ebb197d16f9d740800000000000000
-      internalID: 5177439853085441660
+      spriteID: 1fc098d44f64c9b80800000000000000
+      internalID: -8386750390983914255
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: runArtboard 1_9
+      name: no-cape-diana-soft-landing_9
       rect:
         serializedVersion: 2
         x: 800
@@ -348,8 +348,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d0f82807cfa4ea860800000000000000
-      internalID: 7543048873971977997
+      spriteID: 61426afb7db15e760800000000000000
+      internalID: 7486420569020572694
       vertices: []
       indices: 
       edges: []

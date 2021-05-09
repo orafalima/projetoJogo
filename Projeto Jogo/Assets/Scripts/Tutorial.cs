@@ -41,7 +41,7 @@ public class Tutorial : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
-        player.StopWalking();
+        player.StopRunning();
         player.hasCape = false;
         player.canDash = false;
         player.maxJumps = 1;
@@ -103,11 +103,11 @@ public class Tutorial : MonoBehaviour
 
         if (timePassed >= delay && repeat)
         {
-            player.ResumeWalking();
+            player.ResumeRunning();
             repeat = false;
         }
 
-        if (player.died)
+        if (player.IsDead)
         {
             instructionCount++;
             timePassed = 0;
