@@ -1,37 +1,37 @@
 fileFormatVersion: 2
-guid: 9281311142361cc408458786b1963b62
+guid: 672ad6adf94ce2243b7f49a6d6519565
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4560226930801664749
-    second: running-sprites_0
+      213: 7691912907440563414
+    second: diana-soft-landing_0
   - first:
-      213: -5268226863218799284
-    second: running-sprites_1
+      213: -8694968047377890562
+    second: diana-soft-landing_1
   - first:
-      213: 9025306048074170122
-    second: running-sprites_2
+      213: -7524213461480656400
+    second: diana-soft-landing_2
   - first:
-      213: 8028566957401744002
-    second: running-sprites_3
+      213: 1080559519599103821
+    second: diana-soft-landing_3
   - first:
-      213: 5258000427627022698
-    second: running-sprites_4
+      213: 7775580483430057306
+    second: diana-soft-landing_4
   - first:
-      213: 5068150280878535137
-    second: running-sprites_5
+      213: -9206581006630248477
+    second: diana-soft-landing_5
   - first:
-      213: -6553165505973513992
-    second: running-sprites_6
+      213: 4203665554638519314
+    second: diana-soft-landing_6
   - first:
-      213: 1486013065134754669
-    second: running-sprites_7
+      213: -2951870104971708092
+    second: diana-soft-landing_7
   - first:
-      213: 3334302273223234773
-    second: running-sprites_8
+      213: 1003184811558278908
+    second: diana-soft-landing_8
   - first:
-      213: 3009504075962798973
-    second: running-sprites_9
+      213: 205146806044365440
+    second: diana-soft-landing_9
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -73,7 +73,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -145,28 +145,28 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: running-sprites_0
+      name: diana-soft-landing_0
       rect:
         serializedVersion: 2
         x: 0
         y: 200
         width: 200
-        height: 200
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 250
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 31d956e74c1d6b0c0800000000000000
-      internalID: -4560226930801664749
+      spriteID: 6d4ac3b290a2fba60800000000000000
+      internalID: 7691912907440563414
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: running-sprites_1
+      name: diana-soft-landing_1
       rect:
         serializedVersion: 2
         x: 200
@@ -180,14 +180,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c4d4ca5849f73e6b0800000000000000
-      internalID: -5268226863218799284
+      spriteID: ef24baaf0a4455780800000000000000
+      internalID: -8694968047377890562
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: running-sprites_2
+      name: diana-soft-landing_2
       rect:
         serializedVersion: 2
         x: 400
@@ -201,14 +201,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a0f35a85804504d70800000000000000
-      internalID: 9025306048074170122
+      spriteID: 0f1bb36c8bf949790800000000000000
+      internalID: -7524213461480656400
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: running-sprites_3
+      name: diana-soft-landing_3
       rect:
         serializedVersion: 2
         x: 600
@@ -222,14 +222,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 282ae5f4c133b6f60800000000000000
-      internalID: 8028566957401744002
+      spriteID: d4f0f54782beefe00800000000000000
+      internalID: 1080559519599103821
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: running-sprites_4
+      name: diana-soft-landing_4
       rect:
         serializedVersion: 2
         x: 800
@@ -243,14 +243,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a698f85e78b28f840800000000000000
-      internalID: 5258000427627022698
+      spriteID: a550f4db04968eb60800000000000000
+      internalID: 7775580483430057306
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: running-sprites_5
+      name: diana-soft-landing_5
       rect:
         serializedVersion: 2
         x: 0
@@ -264,14 +264,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e1bf0804dfa55640800000000000000
-      internalID: 5068150280878535137
+      spriteID: 3ef12ff5a57ab3080800000000000000
+      internalID: -9206581006630248477
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: running-sprites_6
+      name: diana-soft-landing_6
       rect:
         serializedVersion: 2
         x: 200
@@ -285,14 +285,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f01b1641ba7e05a0800000000000000
-      internalID: -6553165505973513992
+      spriteID: 21c36cacc8b665a30800000000000000
+      internalID: 4203665554638519314
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: running-sprites_7
+      name: diana-soft-landing_7
       rect:
         serializedVersion: 2
         x: 400
@@ -306,14 +306,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6b42fe62016f9410800000000000000
-      internalID: 1486013065134754669
+      spriteID: 449f01a77c9d807d0800000000000000
+      internalID: -2951870104971708092
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: running-sprites_8
+      name: diana-soft-landing_8
       rect:
         serializedVersion: 2
         x: 600
@@ -327,14 +327,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d49f396042d54e20800000000000000
-      internalID: 3334302273223234773
+      spriteID: cf69ff065470ced00800000000000000
+      internalID: 1003184811558278908
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: running-sprites_9
+      name: diana-soft-landing_9
       rect:
         serializedVersion: 2
         x: 800
@@ -348,8 +348,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d735ad51308e3c920800000000000000
-      internalID: 3009504075962798973
+      spriteID: 0829415eee3d8d200800000000000000
+      internalID: 205146806044365440
       vertices: []
       indices: 
       edges: []

@@ -1,37 +1,37 @@
 fileFormatVersion: 2
-guid: 0a7922041efdc874580fa92e71cbefb1
+guid: a82443e7bd0ce5644b8dfc8cc8b90611
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5829630934302756237
-    second: diana-running_0
+      213: 6639873029506642264
+    second: no-cape-diana-run_0
   - first:
-      213: 9214948137042213188
-    second: diana-running_1
+      213: 6476262638803943596
+    second: no-cape-diana-run_1
   - first:
-      213: -2797190773021900331
-    second: diana-running_2
+      213: 6235344851615802194
+    second: no-cape-diana-run_2
   - first:
-      213: 7003014719442985323
-    second: diana-running_3
+      213: 3158810673063495168
+    second: no-cape-diana-run_3
   - first:
-      213: -1290973401724085323
-    second: diana-running_4
+      213: -7322497276883477190
+    second: no-cape-diana-run_4
   - first:
-      213: 1277360152544288399
-    second: diana-running_5
+      213: 4404455919228020939
+    second: no-cape-diana-run_5
   - first:
-      213: -6063624208025735063
-    second: diana-running_6
+      213: 3487702985060057697
+    second: no-cape-diana-run_6
   - first:
-      213: 407131012019315191
-    second: diana-running_7
+      213: 5569954701014326549
+    second: no-cape-diana-run_7
   - first:
-      213: 7058590467058455722
-    second: diana-running_8
+      213: -6285736054889292572
+    second: no-cape-diana-run_8
   - first:
-      213: 1968219840751555927
-    second: diana-running_9
+      213: -4560653313737614368
+    second: no-cape-diana-run_9
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -145,7 +145,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: diana-running_0
+      name: no-cape-diana-run_0
       rect:
         serializedVersion: 2
         x: 0
@@ -159,14 +159,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 372714d4d8df81fa0800000000000000
-      internalID: -5829630934302756237
+      spriteID: 851b07d3751952c50800000000000000
+      internalID: 6639873029506642264
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: diana-running_1
+      name: no-cape-diana-run_1
       rect:
         serializedVersion: 2
         x: 200
@@ -180,14 +180,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4497c0cf18212ef70800000000000000
-      internalID: 9214948137042213188
+      spriteID: ca00b0aae8e40e950800000000000000
+      internalID: 6476262638803943596
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: diana-running_2
+      name: no-cape-diana-run_2
       rect:
         serializedVersion: 2
         x: 400
@@ -201,14 +201,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d18705efc16e29d0800000000000000
-      internalID: -2797190773021900331
+      spriteID: 253ee943b15688650800000000000000
+      internalID: 6235344851615802194
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: diana-running_3
+      name: no-cape-diana-run_3
       rect:
         serializedVersion: 2
         x: 600
@@ -222,14 +222,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b612b35a8c4bf2160800000000000000
-      internalID: 7003014719442985323
+      spriteID: 00689a0329956db20800000000000000
+      internalID: 3158810673063495168
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: diana-running_4
+      name: no-cape-diana-run_4
       rect:
         serializedVersion: 2
         x: 800
@@ -243,14 +243,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5bb12cfe78a851ee0800000000000000
-      internalID: -1290973401724085323
+      spriteID: a3d589ed583416a90800000000000000
+      internalID: -7322497276883477190
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: diana-running_5
+      name: no-cape-diana-run_5
       rect:
         serializedVersion: 2
         x: 0
@@ -264,14 +264,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f8e14ae7a481ab110800000000000000
-      internalID: 1277360152544288399
+      spriteID: bc8e37e9255cf1d30800000000000000
+      internalID: 4404455919228020939
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: diana-running_6
+      name: no-cape-diana-run_6
       rect:
         serializedVersion: 2
         x: 200
@@ -285,14 +285,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 960ba25c8eda9dba0800000000000000
-      internalID: -6063624208025735063
+      spriteID: 1620392e26fc66030800000000000000
+      internalID: 3487702985060057697
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: diana-running_7
+      name: no-cape-diana-run_7
       rect:
         serializedVersion: 2
         x: 400
@@ -306,14 +306,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f1e4749f7b66a500800000000000000
-      internalID: 407131012019315191
+      spriteID: 51dd9f82a447c4d40800000000000000
+      internalID: 5569954701014326549
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: diana-running_8
+      name: no-cape-diana-run_8
       rect:
         serializedVersion: 2
         x: 600
@@ -327,14 +327,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa45afbb1a625f160800000000000000
-      internalID: 7058590467058455722
+      spriteID: 4ec55708c5494c8a0800000000000000
+      internalID: -6285736054889292572
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: diana-running_9
+      name: no-cape-diana-run_9
       rect:
         serializedVersion: 2
         x: 800
@@ -348,8 +348,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7555fdf5485805b10800000000000000
-      internalID: 1968219840751555927
+      spriteID: 0eb16fa79fd45b0c0800000000000000
+      internalID: -4560653313737614368
       vertices: []
       indices: 
       edges: []

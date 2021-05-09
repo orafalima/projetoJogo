@@ -1,70 +1,52 @@
 fileFormatVersion: 2
-guid: c1575dd1c5ad5464682e82399bd5787f
+guid: 174e8c807f9681b4f8a20b3fdb0b87d1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3012910511455328642
-    second: asdfdfeArtboard 1_0
+      213: 8020361217660934640
+    second: diana-start-stop_0
   - first:
-      213: -9021398658077768095
-    second: asdfdfeArtboard 1_1
+      213: -6275008359749611876
+    second: diana-start-stop_1
   - first:
-      213: 1085136813682862743
-    second: asdfdfeArtboard 1_2
+      213: 1632869167742490796
+    second: diana-start-stop_2
   - first:
-      213: -4318944370382778428
-    second: asdfdfeArtboard 1_3
+      213: 4465234724123021372
+    second: diana-start-stop_3
   - first:
-      213: -3129691309300155858
-    second: asdfdfeArtboard 1_4
+      213: -3141876665870417907
+    second: diana-start-stop_4
   - first:
-      213: 7918118217546447211
-    second: asdfdfeArtboard 1_5
+      213: 1567596144736751413
+    second: diana-start-stop_5
   - first:
-      213: 8225935718074537217
-    second: asdfdfeArtboard 1_6
+      213: 7502216543920061527
+    second: diana-start-stop_6
   - first:
-      213: 7892730213854375939
-    second: asdfdfeArtboard 1_7
+      213: 4794765885997383633
+    second: diana-start-stop_7
   - first:
-      213: -8676600549569571915
-    second: asdfdfeArtboard 1_8
+      213: 6033504257488477304
+    second: diana-start-stop_8
   - first:
-      213: -3965046465891953667
-    second: asdfdfeArtboard 1_9
+      213: -8179797241222877126
+    second: diana-start-stop_9
   - first:
-      213: 4157739438256792897
-    second: asdfdfeArtboard 1_10
+      213: 1655023926137557638
+    second: diana-start-stop_10
   - first:
-      213: -1170508695596400664
-    second: asdfdfeArtboard 1_11
+      213: 5394120175788502302
+    second: diana-start-stop_11
   - first:
-      213: 1348488217746880475
-    second: asdfdfeArtboard 1_12
+      213: 3821023183238615684
+    second: diana-start-stop_12
   - first:
-      213: -8684483821632100889
-    second: asdfdfeArtboard 1_13
+      213: -1582935392757884193
+    second: diana-start-stop_13
   - first:
-      213: -4896996193245187299
-    second: asdfdfeArtboard 1_14
-  - first:
-      213: -5759634423572215451
-    second: asdfdfeArtboard 1_15
-  - first:
-      213: 3848414313063055726
-    second: asdfdfeArtboard 1_16
-  - first:
-      213: 8785503698369862265
-    second: asdfdfeArtboard 1_17
-  - first:
-      213: -2471869133714066776
-    second: asdfdfeArtboard 1_18
-  - first:
-      213: -6118111138563964697
-    second: asdfdfeArtboard 1_19
-  - first:
-      213: 946125568831739811
-    second: asdfdfeArtboard 1_20
+      213: -3849016549715864868
+    second: diana-start-stop_14
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -95,7 +77,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -178,442 +160,316 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: asdfdfeArtboard 1_0
+      name: diana-start-stop_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 1201
+        y: 400
         width: 200
-        height: 300
-      alignment: 9
-      pivot: {x: 0.5, y: 0.333}
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 289d557a52200d920800000000000000
-      internalID: 3012910511455328642
+      spriteID: 0f9dff4a80c0e4f60800000000000000
+      internalID: 8020361217660934640
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: asdfdfeArtboard 1_1
+      name: diana-start-stop_1
       rect:
         serializedVersion: 2
         x: 200
-        y: 1201
+        y: 400.6667
         width: 200
-        height: 300
-      alignment: 9
-      pivot: {x: 0.5, y: 0.333}
+        height: 200.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 166c618c7bd8dc280800000000000000
-      internalID: -9021398658077768095
+      spriteID: c9e848aa421bae8a0800000000000000
+      internalID: -6275008359749611876
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: asdfdfeArtboard 1_2
+      name: diana-start-stop_2
       rect:
         serializedVersion: 2
         x: 400
-        y: 1201
+        y: 400
         width: 200
-        height: 300
-      alignment: 9
-      pivot: {x: 0.5, y: 0.333}
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 79a2448ce2e2f0f00800000000000000
-      internalID: 1085136813682862743
+      spriteID: ca89af35bdd19a610800000000000000
+      internalID: 1632869167742490796
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: asdfdfeArtboard 1_3
+      name: diana-start-stop_3
       rect:
         serializedVersion: 2
         x: 600
-        y: 1201
+        y: 400.6667
         width: 200
-        height: 300
-      alignment: 9
-      pivot: {x: 0.5, y: 0.333}
+        height: 200.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4cf49a65af60014c0800000000000000
-      internalID: -4318944370382778428
+      spriteID: c309712e253b7fd30800000000000000
+      internalID: 4465234724123021372
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: asdfdfeArtboard 1_4
+      name: diana-start-stop_4
       rect:
         serializedVersion: 2
         x: 800
-        y: 1200.8
+        y: 400
         width: 200
-        height: 300.2
-      alignment: 9
-      pivot: {x: 0.5, y: 0.333}
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2a7984065a1194d0800000000000000
-      internalID: -3129691309300155858
+      spriteID: d0084ba91dfc564d0800000000000000
+      internalID: -3141876665870417907
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: asdfdfeArtboard 1_5
+      name: diana-start-stop_5
       rect:
         serializedVersion: 2
         x: 0
-        y: 900.8
+        y: 200.66667
         width: 200
-        height: 300.2
-      alignment: 9
-      pivot: {x: 0.5, y: 0.333}
+        height: 200.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b69b76e119ec2ed60800000000000000
-      internalID: 7918118217546447211
+      spriteID: 53f4e4e536831c510800000000000000
+      internalID: 1567596144736751413
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: asdfdfeArtboard 1_6
+      name: diana-start-stop_6
       rect:
         serializedVersion: 2
         x: 200
-        y: 900.8
+        y: 200
         width: 200
-        height: 300.2
-      alignment: 9
-      pivot: {x: 0.5, y: 0.333}
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 105d705e3f4682270800000000000000
-      internalID: 8225935718074537217
+      spriteID: 75cf960c23a3d1860800000000000000
+      internalID: 7502216543920061527
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: asdfdfeArtboard 1_7
+      name: diana-start-stop_7
       rect:
         serializedVersion: 2
         x: 400
-        y: 900
+        y: 200.66667
         width: 200
-        height: 300
-      alignment: 9
-      pivot: {x: 0.5, y: 0.333}
+        height: 200.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 30078c0ef4c988d60800000000000000
-      internalID: 7892730213854375939
+      spriteID: 1dff8086b2e6a8240800000000000000
+      internalID: 4794765885997383633
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: asdfdfeArtboard 1_8
+      name: diana-start-stop_8
       rect:
         serializedVersion: 2
         x: 600
-        y: 900.8
+        y: 200
         width: 200
-        height: 300.2
-      alignment: 9
-      pivot: {x: 0.5, y: 0.333}
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b352f055c5869780800000000000000
-      internalID: -8676600549569571915
+      spriteID: 87c5862c7205bb350800000000000000
+      internalID: 6033504257488477304
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: asdfdfeArtboard 1_9
+      name: diana-start-stop_9
       rect:
         serializedVersion: 2
         x: 800
-        y: 900.8
+        y: 200.66667
         width: 200
-        height: 300.2
-      alignment: 9
-      pivot: {x: 0.5, y: 0.333}
+        height: 200.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df3979a3f3359f8c0800000000000000
-      internalID: -3965046465891953667
+      spriteID: a30b03e5fb58b7e80800000000000000
+      internalID: -8179797241222877126
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: asdfdfeArtboard 1_10
+      name: diana-start-stop_10
       rect:
         serializedVersion: 2
         x: 0
-        y: 600.8
+        y: 0
         width: 200
-        height: 300.2
-      alignment: 9
-      pivot: {x: 0.5, y: 0.333}
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 145aded8df143b930800000000000000
-      internalID: 4157739438256792897
+      spriteID: 682933cfd73d7f610800000000000000
+      internalID: 1655023926137557638
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: asdfdfeArtboard 1_11
+      name: diana-start-stop_11
       rect:
         serializedVersion: 2
         x: 200
-        y: 600.8
+        y: 0.66667175
         width: 200
-        height: 300.2
-      alignment: 9
-      pivot: {x: 0.5, y: 0.333}
+        height: 200.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ef78700b8481cfe0800000000000000
-      internalID: -1170508695596400664
+      spriteID: e1d24a978b3cbda40800000000000000
+      internalID: 5394120175788502302
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: asdfdfeArtboard 1_12
+      name: diana-start-stop_12
       rect:
         serializedVersion: 2
         x: 400
-        y: 600.8
+        y: 0
         width: 200
-        height: 300.2
-      alignment: 9
-      pivot: {x: 0.5, y: 0.333}
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd73a92b3eac6b210800000000000000
-      internalID: 1348488217746880475
+      spriteID: 482587b2750070530800000000000000
+      internalID: 3821023183238615684
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: asdfdfeArtboard 1_13
+      name: diana-start-stop_13
       rect:
         serializedVersion: 2
         x: 600
-        y: 601
+        y: 0.66667175
         width: 200
-        height: 300
-      alignment: 9
-      pivot: {x: 0.5, y: 0.333}
+        height: 200.33333
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e5edf10af38a7780800000000000000
-      internalID: -8684483821632100889
+      spriteID: fdad544a5a8480ae0800000000000000
+      internalID: -1582935392757884193
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: asdfdfeArtboard 1_14
+      name: diana-start-stop_14
       rect:
         serializedVersion: 2
         x: 800
-        y: 600.8
+        y: 0
         width: 200
-        height: 300.2
-      alignment: 9
-      pivot: {x: 0.5, y: 0.333}
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d133e2b58ef5a0cb0800000000000000
-      internalID: -4896996193245187299
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: asdfdfeArtboard 1_15
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 300.8
-        width: 200
-        height: 300.2
-      alignment: 9
-      pivot: {x: 0.5, y: 0.333}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 569cdd2f10ba110b0800000000000000
-      internalID: -5759634423572215451
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: asdfdfeArtboard 1_16
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 300.8
-        width: 200
-        height: 300.2
-      alignment: 9
-      pivot: {x: 0.5, y: 0.333}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e6107ae8d60586530800000000000000
-      internalID: 3848414313063055726
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: asdfdfeArtboard 1_17
-      rect:
-        serializedVersion: 2
-        x: 400
-        y: 300.8
-        width: 200
-        height: 300.2
-      alignment: 9
-      pivot: {x: 0.5, y: 0.333}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 97a573ae0116ce970800000000000000
-      internalID: 8785503698369862265
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: asdfdfeArtboard 1_18
-      rect:
-        serializedVersion: 2
-        x: 600
-        y: 300.8
-        width: 200
-        height: 300.2
-      alignment: 9
-      pivot: {x: 0.5, y: 0.333}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8a278b19e1822bdd0800000000000000
-      internalID: -2471869133714066776
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: asdfdfeArtboard 1_19
-      rect:
-        serializedVersion: 2
-        x: 800
-        y: 300.8
-        width: 200
-        height: 300.2
-      alignment: 9
-      pivot: {x: 0.5, y: 0.333}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7e0c889a55a181ba0800000000000000
-      internalID: -6118111138563964697
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: asdfdfeArtboard 1_20
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0.7999878
-        width: 200
-        height: 300.2
-      alignment: 9
-      pivot: {x: 0.5, y: 0.333}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3a7512b2130512d00800000000000000
-      internalID: 946125568831739811
+      spriteID: cd2169b47db859ac0800000000000000
+      internalID: -3849016549715864868
       vertices: []
       indices: 
       edges: []
