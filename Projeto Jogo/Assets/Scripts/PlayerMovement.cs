@@ -345,6 +345,7 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = true;
             jumpCount = 0;
         }
+
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -360,4 +361,10 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = false;
         }
     }
+
+    public bool getReadyToDash()
+    {
+        return this.readyToDash;
+    }
+
 }
