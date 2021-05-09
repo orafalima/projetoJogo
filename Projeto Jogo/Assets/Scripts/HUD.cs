@@ -7,9 +7,9 @@ public class HUD : MonoBehaviour
 {
 
     public Image DashIcon;
-    PlayerMovement player;
     public Image CooldownCircle;
     private float cooldownTime;
+    PlayerMovement player;
 
     // Start is called before the first frame update
     void Start()
@@ -46,7 +46,7 @@ public class HUD : MonoBehaviour
         {
             if(this.CooldownCircle.fillAmount == 0f)
             {
-                this.CooldownCircle.fillAmount += 1.0f;
+                this.CooldownCircle.fillAmount += 1.0f; 
             }
             this.CooldownCircle.enabled = false;
             color.a = 1.0f;
