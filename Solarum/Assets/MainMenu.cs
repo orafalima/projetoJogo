@@ -8,42 +8,49 @@ public class MainMenu : MonoBehaviour
     private TextMeshProUGUI creditsSelect;
     private TextMeshProUGUI exitSelect;
 
+    
+
     private int selected = 0;
 
     // Load first level scene
     public void PlayGame()
     {
+        GameManager.instance.Play("select");
         // Scene change
-        SceneManager.LoadSceneAsync((int)ScenesIndexes.LEVEL_0, LoadSceneMode.Single);
+        SceneManager.UnloadSceneAsync((int)ScenesIndexes.MENU);
+        SceneManager.LoadSceneAsync((int)ScenesIndexes.LEVEL_0, LoadSceneMode.Additive);
     }
 
     // Exit game - desktop builds only
     public void ExitGame()
     {
+        GameManager.instance.Play("select");
         Application.Quit();
     }
 
     public void ShowCredits()
     {
+        GameManager.instance.Play("select");
         // Scene change
-        SceneManager.LoadSceneAsync((int)ScenesIndexes.CREDITS, LoadSceneMode.Single);
+        SceneManager.UnloadSceneAsync((int)ScenesIndexes.MENU);
+        SceneManager.LoadSceneAsync((int)ScenesIndexes.CREDITS, LoadSceneMode.Additive);
     }
 
     public void HoverStart()
     {
-        SoundManager.Play("change");
+        GameManager.instance.Play("change");
         selected = 0;
     }
 
     public void HoverCredits()
     {
-        SoundManager.Play("change");
+        GameManager.instance.Play("change");
         selected = 1;
     }
 
     public void HoverExit()
     {
-        SoundManager.Play("change");
+        GameManager.instance.Play("change");
         selected = 2;
     }
 
@@ -85,7 +92,7 @@ public class MainMenu : MonoBehaviour
         {
             if (selected > 0)
             {
-                SoundManager.Play("change");
+                GameManager.instance.Play("change");
                 selected--;
             }
         }
@@ -94,14 +101,13 @@ public class MainMenu : MonoBehaviour
         {
             if (selected < 3)
             {
-                SoundManager.Play("change");
+                GameManager.instance.Play("change");
                 selected++;
             }
         }
 
         if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.Return))
         {
-            SoundManager.Play("select");
             switch (selected)
             {
                 case 0:

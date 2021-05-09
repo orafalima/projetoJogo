@@ -9,6 +9,11 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
 
-        SceneManager.LoadSceneAsync((int)ScenesIndexes.MENU, LoadSceneMode.Single);
+        SceneManager.LoadSceneAsync((int)ScenesIndexes.MENU, LoadSceneMode.Additive);
+    }
+
+   public void Play(string sound)
+    {
+        SoundManager.Play(sound);
     }
 }

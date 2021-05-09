@@ -94,7 +94,7 @@ Animator:
   m_GameObject: {fileID: 1680660749616469247}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 335c393bee7ba56478893152ba9d9f2f, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -192,7 +192,7 @@ GameObject:
   - component: {fileID: 1680660750424205999}
   - component: {fileID: 1680660750424205987}
   m_Layer: 3
-  m_Name: Player
+  m_Name: ===PLAYER===
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -340,15 +340,17 @@ MonoBehaviour:
   gravityDelay: 0.5
   direction: 0
   running: 0
-  speed: 30
-  maxJumps: 1
+  speed: 35
+  maxJumps: 2
   jumpCount: 0
   jumpForce: 12
+  canDash: 0
   dashCooldown: 2
   upDashForce: 13
   downDashForce: 20
   rightDashForce: 70
-  cape: {fileID: 1680660749616469235}
+  hasCape: 0
+  animatorOverrider: {fileID: 0}
 --- !u!114 &1680660750424205986
 MonoBehaviour:
   m_ObjectHideFlags: 0

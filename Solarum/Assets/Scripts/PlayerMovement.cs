@@ -34,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
     private float airTime; // to control landing animation
     private GameObject Platform { get; set; } // what platform player is colliding with
 
+
     // Dash attributtes
     public bool canDash;
     private bool readyToDash;

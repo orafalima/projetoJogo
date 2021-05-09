@@ -5,12 +5,14 @@ public class CreditsScript : MonoBehaviour
 {
     public void Back()
     {
-        SceneManager.LoadSceneAsync((int)ScenesIndexes.MENU, LoadSceneMode.Single);
+        GameManager.instance.Play("select");
+        SceneManager.UnloadSceneAsync((int)ScenesIndexes.CREDITS);
+        SceneManager.LoadSceneAsync((int)ScenesIndexes.MENU, LoadSceneMode.Additive);
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.Return))
         {
             Back();
         }
@@ -18,6 +20,6 @@ public class CreditsScript : MonoBehaviour
 
     public void BackHover()
     {
-        SoundManager.Play("change");
+        GameManager.instance.Play("change");
     }
 }
