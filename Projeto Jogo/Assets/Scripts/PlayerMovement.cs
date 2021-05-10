@@ -236,13 +236,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
+        
         // Animation Cycle
         if (jumpCount == 1)
         {
+            capeAnimator.SetTrigger("interrupt");
             animator.SetTrigger("jump2");
         }
         else
         {
+            capeAnimator.SetTrigger("interrupt");
             animator.SetTrigger("jump1");
         }
 

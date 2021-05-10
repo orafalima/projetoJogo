@@ -953,7 +953,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.0446053, y: 0.6000004, z: -1}
+  m_LocalPosition: {x: 2.37, y: 0.6000004, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1147980132}
@@ -6035,12 +6035,9 @@ MonoBehaviour:
   verticalSpeed: 0
   direction: 0
   running: 0
-  speed: 30
   maxJumps: 2
   jumpCount: 0
-  jumpForce: 12
   canDash: 0
-  dashCooldown: 2
   upDashForce: 13
   downDashForce: 20
   rightDashForce: 70
@@ -6792,7 +6789,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1696435658
 Transform:
   m_ObjectHideFlags: 0
@@ -8557,7 +8554,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2123315053}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.0446053, y: 0.6000004, z: -1}
+  m_LocalPosition: {x: 2.37, y: 0.6000004, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1413753368}

@@ -57,8 +57,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7476473814928453009}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 90.18402, y: 4.562138, z: 0}
-  m_LocalScale: {x: 1.1764705, y: 1.1764705, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children: []
   m_Father: {fileID: 7476473816498035386}
   m_RootOrder: 0
@@ -146,7 +146,6 @@ GameObject:
   - component: {fileID: 4837630231942016145}
   - component: {fileID: 8290058648477643971}
   - component: {fileID: 5032998215213741491}
-  - component: {fileID: 8718684446479297207}
   - component: {fileID: 6572655078084060669}
   - component: {fileID: 7476473815042216077}
   - component: {fileID: 7794945555642629077}
@@ -165,7 +164,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7476473815042216074}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -86.17, y: -4.59, z: 16.493807}
+  m_LocalPosition: {x: -86.17, y: -4.59, z: 0}
   m_LocalScale: {x: 0.85, y: 0.85, z: 0}
   m_Children:
   - {fileID: 7476473814928453008}
@@ -300,30 +299,14 @@ MonoBehaviour:
   verticalSpeed: 0
   direction: 0
   running: 0
-  speed: 35
   maxJumps: 2
   jumpCount: 0
-  jumpForce: 12
   canDash: 0
-  dashCooldown: 2
   upDashForce: 13
   downDashForce: 20
   rightDashForce: 100
-  cape: {fileID: 7476473814928453009}
-  hasCape: 0
+  hasCape: 1
   animatorOverrider: {fileID: 22100000, guid: 943f918cf852a5841ad14ffee98134fe, type: 2}
---- !u!114 &8718684446479297207
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7476473815042216074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28da40a93f239c74eaf073ee4c0c0734, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &6572655078084060669
 Animator:
   serializedVersion: 3
