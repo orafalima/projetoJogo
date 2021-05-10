@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     private int score = 0;
     private int totalStarCount = 0;
     private int totalScore = 0;
-    private int[] starsRequired = new int[9] { 3, 4, 3, 6, 8, 10, 5, 6, 9 };
+    private int[] starsRequired = new int[9] { 3, 4, 3, 6, 8, 10, 5, 6, 20 };
     private int level = 0;
     private int deathCount = 0;
     private bool hasCape = false;
