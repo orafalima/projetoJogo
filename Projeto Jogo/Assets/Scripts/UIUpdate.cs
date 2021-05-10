@@ -45,7 +45,7 @@ public class UIUpdate : MonoBehaviour
                 levelTextList.Enqueue("Mas ganha muito mais pontos coletando as estrelas");
                 break;
             case 5:
-                levelTextList.Enqueue("Se você realizar um voô e em seguida pular");
+                levelTextList.Enqueue("Se você realizar um voô e pular logo após");
                 levelTextList.Enqueue("Você executará um super pulo");
                 levelTextList.Enqueue("Use para alcançar lugares que não alcançaria normalmente");
                 break;
