@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
 
     public void Play(string sound)
     {
-        SoundManager.Play(sound);
+            SoundManager.Play(sound);
     }
 
     public void AddStar()

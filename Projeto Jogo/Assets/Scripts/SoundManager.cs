@@ -2,8 +2,7 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    public static AudioClip select, change, star, track,
-        jump, dash;
+    private static AudioClip select, change, star, track, jump, dash;
     static AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
@@ -15,8 +14,7 @@ public class SoundManager : MonoBehaviour
         jump = Resources.Load<AudioClip>("Audio/Jump");
         dash = Resources.Load<AudioClip>("Audio/Dash");
 
-        audioSource = GetComponent<AudioSource>();
-
+        audioSource = GameObject.Find("SoundManager").GetComponent<AudioSource>();
     }
 
     void Awake()
