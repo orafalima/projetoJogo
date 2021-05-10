@@ -20,11 +20,11 @@ public class HUD : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.cooldownBar(player.getReadyToDash());
-        this.updateMeteor(GameManager.instance.GetStar());
+        this.CooldownBar(player.GetReadyToDash());
+        this.UpdateMeteor(GameManager.instance.GetStar());
     }
 
-    private void cooldownBar(bool dash)
+    private void CooldownBar(bool dash)
     {
 
         if (!dash)
@@ -43,7 +43,7 @@ public class HUD : MonoBehaviour
         }
     }
 
-    private void updateMeteor(int stars)
+    private void UpdateMeteor(int stars)
     {
         this.Meteor.fillAmount = (1.0f / GameManager.instance.GetStarsRequired()) * stars;
     }
