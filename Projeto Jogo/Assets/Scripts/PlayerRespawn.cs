@@ -14,16 +14,23 @@ public class PlayerRespawn : MonoBehaviour
         deathSpawnPoint = GameObject.Find("Spawn");
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
+        player.transform.position = deathSpawnPoint.transform.position;
         GameManager.instance.ResetStarScore();
+        GameManager.instance.AddDeath();
 
-        player.GetComponent<PlayerMovement>().IsDead = true;
-        player.GetComponent<PlayerMovement>().StopRunning();
-        player.GetComponent<Rigidbody2D>().simulated = false;
-        player.GetComponent<PlayerMovement>().PlayerHasControl = false;
+        //player.GetComponent<PlayerMovement>().IsDead = true;
+        //player.GetComponent<PlayerMovement>().StopRunning();
+        //player.GetComponent<Rigidbody2D>().simulated = false;
+        //player.GetComponent<PlayerMovement>().PlayerHasControl = false;
+        //player.GetComponent<PlayerMovement>().IsDead = false;
+        //player.GetComponent<PlayerMovement>().ResumeRunning();
+        //player.GetComponent<Rigidbody2D>().simulated = true;
+        //player.GetComponent<PlayerMovement>().PlayerHasControl = true;
 
-        StartCoroutine(ResetPosition());
+
+        //StartCoroutine(ResetPosition());
     }
 
     IEnumerator ResetPosition()

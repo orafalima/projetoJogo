@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - Checkmark
   - Star
+  - Portal
   layers:
   - Default
   - TransparentFX

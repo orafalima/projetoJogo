@@ -10,7 +10,8 @@ public class GameManager : MonoBehaviour
     private int totalStarCount = 0;
     private int totalScore = 0;
     private int starsRequired = 3;
-    private int Level = 0;
+    private int level = 0;
+    private int deathCount = 0;
 
     // Game sound volume :))))))))))
     private float volume = 0.5f;
@@ -34,6 +35,7 @@ public class GameManager : MonoBehaviour
         // Scene change
         SceneManager.UnloadSceneAsync((int)ScenesIndexes.MENU);
         SceneManager.LoadSceneAsync((int)ScenesIndexes.LEVEL_1, LoadSceneMode.Additive);
+        level++;
     }
 
     // Exit game - desktop builds only
@@ -86,13 +88,20 @@ public class GameManager : MonoBehaviour
         return totalStarCount;
     }
 
+    public int GetLevel()
+    {
+        return level;
+    }
+
     public void NextLevel()
     {
         totalStarCount += starCount;
         starCount = 0;
         totalScore += score;
         score = 0;
-        Level++;
+        SceneManager.UnloadSceneAsync(level+3);
+        level++;
+        SceneManager.LoadSceneAsync(level+3, LoadSceneMode.Additive);
     }
 
     public void ResetStarScore()
@@ -114,5 +123,15 @@ public class GameManager : MonoBehaviour
     public float GetSoundtrackVolume()
     {
         return soundtrackVolume;
+    }
+
+    public int GetDeathCount()
+    {
+        return deathCount;
+    }
+
+    public void AddDeath()
+    {
+        deathCount++;
     }
 }

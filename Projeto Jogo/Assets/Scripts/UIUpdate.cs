@@ -9,12 +9,27 @@ public class UIUpdate : MonoBehaviour
     private TextMeshProUGUI levelTxt;
     private Queue<string> levelTextList;
 
+    // Gambiarra variable
+    private bool firstDeath = true;
+
     // Start is called before the first frame update
     void Start()
     {
-        levelTextList.Enqueue("Aperte ↑ para pular");
-        levelTextList.Enqueue("Você pode apertar duas vezes ↑ para realizar um pulo duplo");
-        levelTextList.Enqueue("Colete 3 estrelas e chegue até o final para prosseguir");
+        switch (GameManager.instance.GetLevel())
+        {
+            case 1:
+                levelTextList.Enqueue("Aperte ↑ para pular");
+                levelTextList.Enqueue("Você pode apertar duas vezes ↑ para realizar um pulo duplo");
+                break;
+            case 2:
+                levelTextList.Enqueue("Enquanto estiver no ar, você tem acesso a um poder");
+                levelTextList.Enqueue("Você pode apertar D para realizar um voô à frente");
+                levelTextList.Enqueue("Porém este poder demora alguns segundos para carregar");
+                levelTextList.Enqueue("Use com cuidado ;)");
+                break;
+        }
+
+        levelTextList.Enqueue("Colete " + GameManager.instance.GetStarsRequired() + " estrelas e chegue até o final para prosseguir");
     }
 
     void Awake()
@@ -27,10 +42,28 @@ public class UIUpdate : MonoBehaviour
 
     }
 
+    public void AddDeathMessage()
+    {
+        firstDeath = false;
+        Debug.Log("vaposon");
+        levelTextList.Enqueue("Ao morrer, você perde seu score da fase e suas estrelas coletadas");
+        levelTextList.Enqueue("Além de voltar para o começo da fase");
+        levelTxt.text = levelTextList.Dequeue();
+        levelTxt.color = new Color(1, 1, 1, 1);
+        StartCoroutine(FadeLevelText());
+    }
+
     // Update is called once per frame
     void Update()
     {
         scoreTxt.text = GameManager.instance.GetStar().ToString();
+
+        Debug.Log(GameManager.instance.GetDeathCount());
+
+        if(GameManager.instance.GetDeathCount() == 1 && firstDeath)
+        {
+            AddDeathMessage();
+        }
     }
 
 
@@ -38,13 +71,13 @@ public class UIUpdate : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
 
-        for(float i = 1; i >= 0; i -= Time.deltaTime)
+        for (float i = 1; i >= 0; i -= Time.deltaTime)
         {
             levelTxt.color = new Color(1, 1, 1, i);
             yield return null;
         }
 
-        if(levelTextList.Count != 0)
+        if (levelTextList.Count != 0)
         {
             levelTxt.fontSize = 40;
             levelTxt.color = new Color(1, 1, 1, 1);
