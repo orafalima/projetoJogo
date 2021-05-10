@@ -953,7 +953,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.5043349, y: 0.6000004, z: -1}
+  m_LocalPosition: {x: 4.0446053, y: 0.6000004, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1147980132}
@@ -5835,10 +5835,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1692574400}
+  - component: {fileID: 1692574403}
   - component: {fileID: 1692574399}
   - component: {fileID: 1692574402}
   - component: {fileID: 1692574401}
-  - component: {fileID: 1692574403}
   - component: {fileID: 1692574404}
   - component: {fileID: 1692574407}
   - component: {fileID: 1692574406}
@@ -6044,8 +6044,7 @@ MonoBehaviour:
   upDashForce: 13
   downDashForce: 20
   rightDashForce: 70
-  cape: {fileID: 886021269}
-  hasCape: 0
+  hasCape: 1
   animatorOverrider: {fileID: 22100000, guid: 943f918cf852a5841ad14ffee98134fe, type: 2}
 --- !u!114 &1692574404
 MonoBehaviour:
@@ -8558,7 +8557,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2123315053}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.5043349, y: 0.6000004, z: -1}
+  m_LocalPosition: {x: 4.0446053, y: 0.6000004, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1413753368}

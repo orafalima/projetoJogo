@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce = 10; // force of jump
     private bool isGrounded = false; // if player is on the ground/plaform
     private float airTime; // controller for landing animation
-    private GameObject platform { get; set; } // what platform player is colliding with
+    private GameObject Platform { get; set; } // what platform player is colliding with
 
     // Dash attributtes
     public bool canDash;
@@ -62,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
         // Setting Initial Attributes
         PlayerHasControl = true;
         running = true;
-        hasCape = false;
+        hasCape = true;
         canDash = true;
         IsDead = false;
         canDropRoll = true;
@@ -77,8 +77,6 @@ public class PlayerMovement : MonoBehaviour
 
         // Setting Animator Controller for Cape
         if (!GameManager.instance.GetCape()) animator.runtimeAnimatorController = animatorOverrider;
-
-        //animator.SetBool("idle", true);
 
     }
 
@@ -158,19 +156,16 @@ public class PlayerMovement : MonoBehaviour
             }
             if (lateralDash)
             {
-                p_RigidBody2D.gravityScale = 0;
-                p_RigidBody2D.velocity = new Vector2(rightDashForce, 0);
                 StartCoroutine(PauseGravity());
+                p_RigidBody2D.velocity = new Vector2(rightDashForce, 0);
                 GameManager.instance.SetCape(false);
                 lateralDash = false;
             }
             if (downDash)
             {
                 StartCoroutine(PauseSpeed(.3f, speed));
-
-                p_RigidBody2D.gravityScale = 0;
-                p_RigidBody2D.velocity = new Vector2(p_RigidBody2D.velocity.x, -downDashForce);
                 StartCoroutine(PauseGravity());
+                p_RigidBody2D.velocity = new Vector2(p_RigidBody2D.velocity.x, -downDashForce);
 
                 downDash = false;
             }
@@ -263,9 +258,9 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(PauseDrop());
         }
 
-        if (platform != null)
+        if (Platform != null)
         {
-            platform.GetComponent<EdgeCollider2D>().enabled = false;
+            Platform.GetComponent<EdgeCollider2D>().enabled = false;
         }
 
         dropRoll = true;
@@ -285,7 +280,6 @@ public class PlayerMovement : MonoBehaviour
 
         // Physics Cycle
         lateralDash = true;
-
     }
 
     private void DownDash()
@@ -322,6 +316,7 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator PauseGravity()
     {
+        p_RigidBody2D.gravityScale = 0;
         yield return new WaitForSeconds(gravityDelay);
         p_RigidBody2D.gravityScale = 2;
     }
@@ -364,36 +359,39 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag.ToString() == "Ground")
-        {
-            isGrounded = true;
-            jumpCount = 0;
-        }
-
-        if (collision.gameObject.tag == "Platform")
+        if (verticalSpeed < fallThreshold)
         {
 
-            platform = collision.gameObject;
-            isGrounded = true;
-            jumpCount = 0;
+            if (collision.gameObject.CompareTag("Ground"))
+            {
+                isGrounded = true;
+                jumpCount = 0;
+            }
+
+            if (collision.gameObject.CompareTag("Platform"))
+            {
+
+                Platform = collision.gameObject;
+                isGrounded = true;
+                jumpCount = 0;
+            }
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ground")
+        if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = false;
         }
 
-        if (collision.gameObject.tag == "Platform")
+        if (collision.gameObject.CompareTag("Platform"))
         {
-            platform = null;
+            Platform = null;
             isGrounded = false;
         }
     }
-
-    public bool getReadyToDash()
+    public bool GetReadyToDash()
     {
         return readyToDash;
     }

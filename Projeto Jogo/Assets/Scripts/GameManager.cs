@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -41,12 +41,15 @@ public class GameManager : MonoBehaviour
         GameManager.instance.Play("select");
         // Scene change
         SceneManager.UnloadSceneAsync((int)ScenesIndexes.MENU);
-        if (!debug) {
-        SceneManager.LoadSceneAsync((int)ScenesIndexes.LEVEL_1, LoadSceneMode.Additive);
-        level++;
-        }else
+        if (debug)
         {
+            hasCape = true;
             SceneManager.LoadSceneAsync(13, LoadSceneMode.Additive);
+        }
+        else
+        {
+            SceneManager.LoadSceneAsync((int)ScenesIndexes.LEVEL_1, LoadSceneMode.Additive);
+            level++;
         }
     }
 
