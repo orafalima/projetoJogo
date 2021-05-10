@@ -45,7 +45,6 @@ public class UIUpdate : MonoBehaviour
     public void AddDeathMessage()
     {
         firstDeath = false;
-        Debug.Log("vaposon");
         levelTextList.Enqueue("Ao morrer, você perde seu score da fase e suas estrelas coletadas");
         levelTextList.Enqueue("Além de voltar para o começo da fase");
         levelTxt.text = levelTextList.Dequeue();
@@ -57,8 +56,6 @@ public class UIUpdate : MonoBehaviour
     void Update()
     {
         scoreTxt.text = GameManager.instance.GetStar().ToString();
-
-        Debug.Log(GameManager.instance.GetDeathCount());
 
         if(GameManager.instance.GetDeathCount() == 1 && firstDeath)
         {
