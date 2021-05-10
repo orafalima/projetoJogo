@@ -201,4 +201,5 @@ public class GameManager : MonoBehaviour
         hasCape = value;
     }
 
+
 }
