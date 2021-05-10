@@ -25,12 +25,14 @@ public class UIUpdate : MonoBehaviour
             case 1:
                 levelTextList.Enqueue("Aperte ↑ para pular");
                 levelTextList.Enqueue("Você pode apertar duas vezes ↑ para realizar um pulo duplo");
+                levelTextList.Enqueue("Aperte a tecla Esc a qualquer momento para retornar ao menu");
                 break;
             case 2:
                 levelTextList.Enqueue("Enquanto estiver no ar, você tem acesso a um poder");
                 levelTextList.Enqueue("Você pode apertar D para realizar um voô à frente");
                 levelTextList.Enqueue("Porém este poder demora alguns segundos para carregar");
                 levelTextList.Enqueue("Use com sabedoria ;)");
+                levelTextList.Enqueue("Você pode apertar R para reiniciar a fase");
                 break;
             case 3:
                 levelTextList.Enqueue("Enquanto estiver no ar, você consegue realizar um mergulho");
