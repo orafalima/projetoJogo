@@ -19,7 +19,7 @@ public class UIUpdate : MonoBehaviour
     void Start()
     {
         levelTxt.text = "Nível " + GameManager.instance.GetLevel();
-        Debug.Log("Nível " + GameManager.instance.GetLevel());
+        levelTxt.fontSize = 80;
         switch (GameManager.instance.GetLevel())
         {
             case 1:
@@ -133,7 +133,7 @@ public class UIUpdate : MonoBehaviour
 
         if (levelTextList.Count != 0)
         {
-            levelTxt.fontSize = 40;
+            levelTxt.fontSize = 25;
             levelTxt.color = new Color(1, 1, 1, 1);
             levelTxt.text = levelTextList.Dequeue();
             StartCoroutine(FadeLevelText());

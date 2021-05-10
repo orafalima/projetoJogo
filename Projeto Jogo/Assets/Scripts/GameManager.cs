@@ -20,8 +20,8 @@ public class GameManager : MonoBehaviour
     private bool notEnoughStar = false;
 
     // Game sound volume :))))))))))
-    private float volume = 0.5f;
-    private float soundtrackVolume = 0.7f;
+    private float volume = 0.3f;
+    private float soundtrackVolume = 0.3f;
 
     private void Awake()
     {
@@ -31,8 +31,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        // TODO LOOPAR SOUNDTRACK
-        Play("soundtrack");
     }
 
     // Load first level scene

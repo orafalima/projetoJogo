@@ -24,13 +24,13 @@ public class PlayerMovement : MonoBehaviour
     public enum Direction { Right, Left }
     public Direction direction = Direction.Right; // direction which the player is going
     public bool running = false; // toggle running state
-    [Range(0, 60)] public float speed = 15; // speed of the running
+    private float speed = 35; // speed of the running
     private float currentSpeed;
 
     // Jumping and Grounding
     public int maxJumps = 2; // maximum jumps player can use
     public int jumpCount = 0; // how many jumps player has already used
-    public float jumpForce = 10; // force of jump
+    private float jumpForce = 13; // force of jump
     private bool isGrounded = false; // if player is on the ground/plaform
     private float airTime; // controller for landing animation
     private GameObject Platform { get; set; } // what platform player is colliding with
@@ -39,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
     public bool canDash;
     private bool readyToDash;
     private float dashTimePassed = 0; // counter for Dash Recharge
-    public float dashCooldown = 6f;
+    private float dashCooldown = 6f;
     public float upDashForce = 13;
     public float downDashForce = 20;
     public float rightDashForce = 10;
@@ -400,6 +400,11 @@ public class PlayerMovement : MonoBehaviour
     public bool GetReadyToDash()
     {
         return readyToDash;
+    }
+
+    public float GetDashCooldown()
+    {
+        return dashCooldown;
     }
 
 }

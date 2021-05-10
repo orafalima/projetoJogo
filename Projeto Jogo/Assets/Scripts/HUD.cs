@@ -13,7 +13,7 @@ public class HUD : MonoBehaviour
     void Start()
     {
         player = GameObject.FindObjectOfType<PlayerMovement>();
-        cooldownTime = player.dashCooldown;
+        cooldownTime = player.GetDashCooldown();
         this.Meteor.fillAmount -= 1.0f;
     }
 
