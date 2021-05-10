@@ -18,6 +18,8 @@ public class UIUpdate : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        levelTxt.text = "Nível " + GameManager.instance.GetLevel();
+        Debug.Log("Nível " + GameManager.instance.GetLevel());
         switch (GameManager.instance.GetLevel())
         {
             case 1:

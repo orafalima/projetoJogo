@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         // TODO LOOPAR SOUNDTRACK
-        Play("soundtrack");
+        //Play("soundtrack");
     }
 
     // Load first level scene

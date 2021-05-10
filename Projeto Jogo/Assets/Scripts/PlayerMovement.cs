@@ -205,6 +205,12 @@ public class PlayerMovement : MonoBehaviour
                 Drop();
             }
 
+            // CHEATER
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                GameManager.instance.NextLevel();
+            }
+
             //// Up dash movement
             //if (Input.GetKeyDown(KeyCode.W))
             //{
