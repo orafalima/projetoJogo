@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,9 +10,10 @@ public class GameManager : MonoBehaviour
     private int score = 0;
     private int totalStarCount = 0;
     private int totalScore = 0;
-    private int starsRequired = 3;
+    private int[] starsRequired = new int[9] { 3, 4, 3, 6, 8, 10, 5, 6, 9 };
     private int level = 0;
     private int deathCount = 0;
+    private bool hasCape = false;
 
     // Gambiarra variable
     private bool notEnoughStar = false;
@@ -28,6 +30,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        // TODO LOOPAR SOUNDTRACK
         Play("soundtrack");
     }
 
@@ -58,7 +61,7 @@ public class GameManager : MonoBehaviour
 
     public void Play(string sound)
     {
-            SoundManager.Play(sound);
+        SoundManager.Play(sound);
     }
 
     public void AddStar()
@@ -102,9 +105,13 @@ public class GameManager : MonoBehaviour
         starCount = 0;
         totalScore += score;
         score = 0;
-        SceneManager.UnloadSceneAsync(level+3);
+        SceneManager.UnloadSceneAsync(level + 3);
         level++;
-        SceneManager.LoadSceneAsync(level+3, LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync(level + 3, LoadSceneMode.Additive);
+        if (level != 1)
+        {
+            hasCape = true;
+        }
     }
 
     public void ResetStarScore()
@@ -112,7 +119,7 @@ public class GameManager : MonoBehaviour
         GameObject[] stars;
         stars = GameObject.FindGameObjectsWithTag("Star");
 
-        foreach(GameObject star in stars)
+        foreach (GameObject star in stars)
         {
             star.gameObject.transform.position = new Vector3(star.gameObject.transform.position.x, star.gameObject.transform.position.y, 0);
         }
@@ -123,7 +130,7 @@ public class GameManager : MonoBehaviour
 
     public int GetStarsRequired()
     {
-        return starsRequired;
+        return starsRequired[level - 1];
     }
 
     public float GetVolume()
@@ -155,4 +162,15 @@ public class GameManager : MonoBehaviour
     {
         return notEnoughStar;
     }
+
+    public bool GetCape()
+    {
+        return hasCape;
+    }
+
+    public void SetCape(bool value)
+    {
+        hasCape = value;
+    }
+
 }

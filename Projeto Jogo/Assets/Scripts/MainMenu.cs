@@ -6,7 +6,7 @@ public class MainMenu : MonoBehaviour
 {
     private TextMeshProUGUI startSelect;
     private TextMeshProUGUI creditsSelect;
-    private TextMeshProUGUI exitSelect;
+    //private TextMeshProUGUI exitSelect;
     private int selected = 0;
 
 
@@ -33,10 +33,10 @@ public class MainMenu : MonoBehaviour
     {
         startSelect = GameObject.Find("startSelect").GetComponent<TextMeshProUGUI>();
         creditsSelect = GameObject.Find("creditsSelect").GetComponent<TextMeshProUGUI>();
-        exitSelect = GameObject.Find("exitSelect").GetComponent<TextMeshProUGUI>();
+        //exitSelect = GameObject.Find("exitSelect").GetComponent<TextMeshProUGUI>();
 
         creditsSelect.enabled = false;
-        exitSelect.enabled = false;
+        //exitSelect.enabled = false;
     }
 
     public void PlayGame()
@@ -62,17 +62,17 @@ public class MainMenu : MonoBehaviour
             case 0:
                 startSelect.enabled = true;
                 creditsSelect.enabled = false;
-                exitSelect.enabled = false;
+                //exitSelect.enabled = false;
                 break;
             case 1:
                 startSelect.enabled = false;
                 creditsSelect.enabled = true;
-                exitSelect.enabled = false;
+                //exitSelect.enabled = false;
                 break;
             case 2:
                 startSelect.enabled = false;
                 creditsSelect.enabled = false;
-                exitSelect.enabled = true;
+                //exitSelect.enabled = true;
                 break;
         }
 

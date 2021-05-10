@@ -1064,8 +1064,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.005004883, y: 54}
-  m_SizeDelta: {x: -1016.24, y: -650.41}
+  m_AnchoredPosition: {x: 0, y: 58.25299}
+  m_SizeDelta: {x: -802.01, y: -468.58}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1951644351
 MonoBehaviour:
@@ -1087,8 +1087,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Amanda SOBRENOME - meromei\nCau\xEA Melo - caucau\nDaniel Cal\xF4nico
-    - raenkumi\nRafael Lima - Kimoh\nLucas Santos - LSdS"
+  m_text: "Equipe\nCau\xEA Melo - caucau\nDaniel Cal\xF4nico - raenkumi\nRafael Lima
+    - Kimoh\nLucas Santos - LSdS\n\nCr\xE9ditos pela m\xFAsica\nBruno Mareto - Bu
+    Mar\xE9\nAmanda - meromei"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3e239ce325403d3449632665aaf9c753, type: 2}
   m_sharedMaterial: {fileID: 2567886764214154886, guid: 3e239ce325403d3449632665aaf9c753, type: 2}
@@ -1115,8 +1116,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60
-  m_fontSizeBase: 60
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

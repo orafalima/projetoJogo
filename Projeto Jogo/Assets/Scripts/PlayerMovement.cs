@@ -39,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
     public bool canDash;
     private bool readyToDash;
     private float dashTimePassed = 0; // counter for Dash Recharge
-    public float dashCooldown = 2f;
+    public float dashCooldown = 6f;
     public float upDashForce = 13;
     public float downDashForce = 20;
     public float rightDashForce = 10;
@@ -63,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
         // Setting Initial Attributes
         PlayerHasControl = true;
         running = true;
-        hasCape = true;
+        hasCape = false;
         canDash = true;
         IsDead = false;
         canDropRoll = true;
@@ -77,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
         capeAnimator = cape.GetComponent<Animator>();
 
         // Setting Animator Controller for Cape
-        if (!hasCape) animator.runtimeAnimatorController = animatorOverrider;
+        if (!GameManager.instance.GetCape()) animator.runtimeAnimatorController = animatorOverrider;
 
         //animator.SetBool("idle", true);
 
@@ -162,7 +162,7 @@ public class PlayerMovement : MonoBehaviour
                 p_RigidBody2D.gravityScale = 0;
                 p_RigidBody2D.velocity = new Vector2(rightDashForce, 0);
                 StartCoroutine(PauseGravity());
-
+                GameManager.instance.SetCape(false);
                 lateralDash = false;
             }
             if (downDash)
@@ -221,7 +221,7 @@ public class PlayerMovement : MonoBehaviour
             //}
 
             // Right dash movement
-            if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+            if ((Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) && GameManager.instance.GetLevel() != 1)
             {
                 if (readyToDash && !isGrounded)
                     LateralDash();
@@ -286,6 +286,7 @@ public class PlayerMovement : MonoBehaviour
 
         // Physics Cycle
         lateralDash = true;
+
     }
 
     private void DownDash()
