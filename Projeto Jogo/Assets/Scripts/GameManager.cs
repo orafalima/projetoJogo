@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     // Gambiarra variable
     private bool notEnoughStar = false;
 
+    AudioSource soundtrack;
+
     // Game sound volume :))))))))))
     private float volume = 0.3f;
     private float soundtrackVolume = 0.3f;
@@ -26,6 +28,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        soundtrack = GameObject.FindGameObjectWithTag("soundtrack").GetComponent<AudioSource>();
         SceneManager.LoadSceneAsync((int)ScenesIndexes.MENU, LoadSceneMode.Additive);
     }
 
@@ -36,6 +39,7 @@ public class GameManager : MonoBehaviour
     // Load first level scene
     public void PlayGame()
     {
+        soundtrack.Play();
         GameManager.instance.Play("select");
         // Scene change
         SceneManager.UnloadSceneAsync((int)ScenesIndexes.MENU);
@@ -49,6 +53,12 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadSceneAsync((int)ScenesIndexes.LEVEL_1, LoadSceneMode.Additive);
             level++;
         }
+    }
+
+    public void BackToMenu()
+    {
+        SceneManager.UnloadSceneAsync((int)ScenesIndexes.CREDITS);
+        SceneManager.LoadSceneAsync((int)ScenesIndexes.MENU, LoadSceneMode.Additive);
     }
 
     // Exit game - desktop builds only

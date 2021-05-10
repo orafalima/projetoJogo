@@ -9,6 +9,7 @@ TagManager:
   - Checkmark
   - Star
   - Portal
+  - soundtrack
   layers:
   - Default
   - TransparentFX
