@@ -20,19 +20,19 @@ public class PlayerAudio : MonoBehaviour
         
     }
 
-    public void PlayJumpAudio()
-    {
-        jumpAudio.Play();
-    }
+    //public void PlayJumpAudio()
+    //{
+    //    jumpAudio.Play();
+    //}
 
-    public void PlayDashAudio()
-    {
-        dashAudio.Play();
-    }
+    //public void PlayDashAudio()
+    //{
+    //    dashAudio.Play();
+    //}
 
-    public void PlayStarAudio()
-    {
-        starAudio.Play();
-    }
+    //public void PlayStarAudio()
+    //{
+    //    starAudio.Play();
+    //}
 
 }

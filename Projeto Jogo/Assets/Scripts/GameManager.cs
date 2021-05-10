@@ -9,12 +9,21 @@ public class GameManager : MonoBehaviour
     private int score = 0;
     private int totalStarCount = 0;
     private int totalScore = 0;
+    private int starsRequired = 3;
     private int Level = 0;
+
+    // Game sound volume :))))))))))
+    private float volume = 0.5f;
 
     private void Awake()
     {
         instance = this;
         SceneManager.LoadSceneAsync((int)ScenesIndexes.MENU, LoadSceneMode.Additive);
+    }
+
+    private void Start()
+    {
+        Play("soundtrack");
     }
 
     // Load first level scene
@@ -89,5 +98,15 @@ public class GameManager : MonoBehaviour
     {
         score = 0;
         starCount = 0;
+    }
+
+    public int GetStarsRequired()
+    {
+        return starsRequired;
+    }
+
+    public float GetVolume()
+    {
+        return volume;
     }
 }

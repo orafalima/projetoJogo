@@ -2,16 +2,26 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    public static AudioClip selectSound, changeSound, starSound;
+    public static AudioClip select, change, star, track,
+        jump, dash;
     static AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
-        selectSound = Resources.Load<AudioClip>("Audio/select");
-        changeSound = Resources.Load<AudioClip>("Audio/change");
-        starSound = Resources.Load<AudioClip>("Audio/star");
+        select = Resources.Load<AudioClip>("Audio/select");
+        change = Resources.Load<AudioClip>("Audio/change");
+        star = Resources.Load<AudioClip>("Audio/star");
+        track = Resources.Load<AudioClip>("Audio/soundtrack2");
+        jump = Resources.Load<AudioClip>("Audio/Jump");
+        dash = Resources.Load<AudioClip>("Audio/Dash");
 
         audioSource = GetComponent<AudioSource>();
+
+    }
+
+    void Awake()
+    {
+        
     }
 
     public static void Play(string clip)
@@ -19,13 +29,22 @@ public class SoundManager : MonoBehaviour
         switch (clip)
         {
             case "change":
-                audioSource.PlayOneShot(changeSound);
+                audioSource.PlayOneShot(change, GameManager.instance.GetVolume());
                 break;
             case "select":
-                audioSource.PlayOneShot(selectSound);
+                audioSource.PlayOneShot(select, GameManager.instance.GetVolume());
                 break;
             case "star":
-                audioSource.PlayOneShot(starSound);
+                audioSource.PlayOneShot(star, GameManager.instance.GetVolume());
+                break;
+            case "soundtrack":
+                audioSource.PlayOneShot(track, GameManager.instance.GetVolume());
+                break;
+            case "jump":
+                audioSource.PlayOneShot(jump, GameManager.instance.GetVolume());
+                break;
+            case "dash":
+                audioSource.PlayOneShot(dash, GameManager.instance.GetVolume());
                 break;
         }
     }

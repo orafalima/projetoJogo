@@ -7,9 +7,6 @@ public class MainMenu : MonoBehaviour
     private TextMeshProUGUI startSelect;
     private TextMeshProUGUI creditsSelect;
     private TextMeshProUGUI exitSelect;
-
-    
-
     private int selected = 0;
 
 
@@ -40,6 +37,21 @@ public class MainMenu : MonoBehaviour
 
         creditsSelect.enabled = false;
         exitSelect.enabled = false;
+    }
+
+    public void PlayGame()
+    {
+        GameManager.instance.PlayGame();
+    }
+
+    public void ShowCredits()
+    {
+        GameManager.instance.ShowCredits();
+    }
+
+    public void ExitGame()
+    {
+        GameManager.instance.ExitGame();
     }
 
     // Update is called once per frame

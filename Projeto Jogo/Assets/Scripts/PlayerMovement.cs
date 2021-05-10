@@ -46,9 +46,6 @@ public class PlayerMovement : MonoBehaviour
     // Cape Attributes
     public bool hasCape;
 
-    // Audio Controller
-    private PlayerAudio playerAudio;
-
     // Animation & Sprites Controller
     private Animator animator;
     private SpriteRenderer sprites;
@@ -71,7 +68,6 @@ public class PlayerMovement : MonoBehaviour
         // Getting Object References
         p_RigidBody2D = GetComponent<Rigidbody2D>();
         sprites = GetComponent<SpriteRenderer>();
-        playerAudio = GetComponent<PlayerAudio>();
         animator = GetComponent<Animator>();
 
         // Setting Animator Controller for Cape
@@ -234,7 +230,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Audio Cycle
-        playerAudio.PlayJumpAudio();
+        GameManager.instance.Play("jump");
 
         // Logic Cycle
         jumpCount++;
@@ -257,7 +253,7 @@ public class PlayerMovement : MonoBehaviour
         animator.SetTrigger("lateralDash");
 
         // Audio Cycle
-        playerAudio.PlayDashAudio();
+        GameManager.instance.Play("dash");
 
         // Logic Cycle
         dashTimePassed = 0;
@@ -272,7 +268,7 @@ public class PlayerMovement : MonoBehaviour
         animator.SetTrigger("downDash");
 
         // Audio Cycle
-        playerAudio.PlayDashAudio();
+        GameManager.instance.Play("dash");
 
         // Logic Cycle
         dashTimePassed = 0;
@@ -287,7 +283,7 @@ public class PlayerMovement : MonoBehaviour
         animator.SetTrigger("upDash");
 
         // Audio Cycle
-        playerAudio.PlayDashAudio();
+        GameManager.instance.Play("dash");
 
         // Logic Cycle
         dashTimePassed = 0;
