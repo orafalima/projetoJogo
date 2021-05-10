@@ -101,7 +101,8 @@ public class PlayerMovement : MonoBehaviour
                 targetVelocity = new Vector2(-(movement * 10f), p_RigidBody2D.velocity.y);
                 sprites.flipX = true;
             }
-        } else
+        }
+        else
         {
             StopRunning();
         }
@@ -139,7 +140,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (airTime > 1.5)
                 animator.SetTrigger("hardLanding");
-            else if ((airTime > 0.05 && airTime <= 1.5) )
+            else if ((airTime > 0.05 && airTime <= 1.5))
                 animator.SetTrigger("softLanding");
 
             // Locic Cycle
@@ -211,6 +212,12 @@ public class PlayerMovement : MonoBehaviour
                 GameManager.instance.RunTest();
             }
 
+            // RESET LEVEL
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                ResetLevel();
+            }
+
             //// Up dash movement
             //if (Input.GetKeyDown(KeyCode.W))
             //{
@@ -236,7 +243,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        
+
         // Animation Cycle
         if (jumpCount == 1)
         {
@@ -413,6 +420,18 @@ public class PlayerMovement : MonoBehaviour
     public float GetDashCooldown()
     {
         return dashCooldown;
+    }
+
+    public void ResetLevel()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        GameObject deathSpawnPoint = GameObject.Find("Spawn");
+
+        player.transform.position = deathSpawnPoint.transform.position;
+        GameManager.instance.ResetStarScore();
+        GameManager.instance.AddDeath();
+        GameManager.instance.Play("failure");
+
     }
 
 }
