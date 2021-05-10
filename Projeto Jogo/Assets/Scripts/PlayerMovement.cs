@@ -206,6 +206,11 @@ public class PlayerMovement : MonoBehaviour
                 GameManager.instance.NextLevel();
             }
 
+            if (Input.GetKeyDown(KeyCode.O))
+            {
+                GameManager.instance.RunTest();
+            }
+
             //// Up dash movement
             //if (Input.GetKeyDown(KeyCode.W))
             //{

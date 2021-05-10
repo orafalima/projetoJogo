@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
     // Load first level scene
     public void PlayGame()
     {
+        soundtrack.volume = soundtrackVolume;
         soundtrack.Play();
         GameManager.instance.Play("select");
         // Scene change
@@ -53,6 +54,14 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadSceneAsync((int)ScenesIndexes.LEVEL_1, LoadSceneMode.Additive);
             level++;
         }
+    }
+
+    public void RunTest()
+    {
+        hasCape = true;
+        SceneManager.UnloadSceneAsync(level + 3);
+        level = 0;
+        SceneManager.LoadSceneAsync(12, LoadSceneMode.Additive);
     }
 
     public void BackToMenu()
@@ -147,6 +156,8 @@ public class GameManager : MonoBehaviour
 
     public int GetStarsRequired()
     {
+        if (level == 0)
+            return 5;
         return starsRequired[level - 1];
     }
 
