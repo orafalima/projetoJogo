@@ -206,6 +206,7 @@ public class GameManager : MonoBehaviour
         SceneManager.UnloadSceneAsync(level + 3);
         SceneManager.LoadSceneAsync((int)ScenesIndexes.MENU, LoadSceneMode.Additive);
         level--;
+        soundtrack.Stop();
     }
 
 
