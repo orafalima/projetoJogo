@@ -65,6 +65,15 @@ public class UIUpdate : MonoBehaviour
         StartCoroutine(FadeLevelText());
     }
 
+    public void AddFailedStarMessage()
+    {
+        GameManager.instance.SetFailedStar(false);
+        levelTextList.Enqueue("Você não conseguiu capturar as estrelas.");
+        levelTxt.text = levelTextList.Dequeue();
+        levelTxt.color = new Color(1, 1, 1, 1);
+        StartCoroutine(FadeLevelText());
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -79,9 +88,13 @@ public class UIUpdate : MonoBehaviour
 
         if(elapsed >= 1f)
         {
-            Debug.Log("Vapo");
             elapsed %= 1f;
             GameManager.instance.AddScore(10);
+        }
+
+        if (GameManager.instance.GetFailedStar())
+        {
+            AddFailedStarMessage();
         }
 
 

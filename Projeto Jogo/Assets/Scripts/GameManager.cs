@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
     private int level = 0;
     private int deathCount = 0;
 
+    // Gambiarra variable
+    private bool notEnoughStar = false;
+
     // Game sound volume :))))))))))
     private float volume = 0.5f;
     private float soundtrackVolume = 0.7f;
@@ -70,7 +73,6 @@ public class GameManager : MonoBehaviour
 
     public void AddScore(int newScore)
     {
-        Debug.Log(score);
         score += newScore;
     }
 
@@ -107,6 +109,14 @@ public class GameManager : MonoBehaviour
 
     public void ResetStarScore()
     {
+        GameObject[] stars;
+        stars = GameObject.FindGameObjectsWithTag("Star");
+
+        foreach(GameObject star in stars)
+        {
+            star.gameObject.transform.position = new Vector3(star.gameObject.transform.position.x, star.gameObject.transform.position.y, 0);
+        }
+
         score = 0;
         starCount = 0;
     }
@@ -134,5 +144,15 @@ public class GameManager : MonoBehaviour
     public void AddDeath()
     {
         deathCount++;
+    }
+
+    public void SetFailedStar(bool value)
+    {
+        notEnoughStar = value;
+    }
+
+    public bool GetFailedStar()
+    {
+        return notEnoughStar;
     }
 }
