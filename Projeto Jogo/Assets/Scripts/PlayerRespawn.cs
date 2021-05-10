@@ -16,7 +16,7 @@ public class PlayerRespawn : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision is BoxCollider2D)
+        if(collision is CircleCollider2D)
         {
         player.transform.position = deathSpawnPoint.transform.position;
         GameManager.instance.ResetStarScore();

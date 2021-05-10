@@ -70,6 +70,7 @@ public class GameManager : MonoBehaviour
 
     public void AddScore(int newScore)
     {
+        Debug.Log(score);
         score += newScore;
     }
 

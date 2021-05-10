@@ -9,6 +9,7 @@ public class StarCollector : MonoBehaviour
             SoundManager.Play("star");
             Destroy(other.gameObject);
             GameManager.instance.AddStar();
+            GameManager.instance.AddScore(200);
         }
     }
 }

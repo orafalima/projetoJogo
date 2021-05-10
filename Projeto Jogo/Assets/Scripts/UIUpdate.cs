@@ -12,6 +12,9 @@ public class UIUpdate : MonoBehaviour
     // Gambiarra variable
     private bool firstDeath = true;
 
+    // Gambiarra variable - o inimigo agora é outro
+    float elapsed = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +29,16 @@ public class UIUpdate : MonoBehaviour
                 levelTextList.Enqueue("Você pode apertar D para realizar um voô à frente");
                 levelTextList.Enqueue("Porém este poder demora alguns segundos para carregar");
                 levelTextList.Enqueue("Use com cuidado ;)");
+                break;
+            case 3:
+                levelTextList.Enqueue("Enquanto estiver no ar, você consegue realizar um mergulho");
+                levelTextList.Enqueue("Basta apertar a tecla S");
+                levelTextList.Enqueue("Este poder não possui recarga...");
+                levelTextList.Enqueue("... Mas não saia mergulhando sem saber o que te espera");
+                break;
+            case 4:
+                levelTextList.Enqueue("Você ganha pontos enquanto estiver correndo..");
+                levelTextList.Enqueue("Mas ganha muito mais pontos coletando as estrelas");
                 break;
         }
 
@@ -55,12 +68,23 @@ public class UIUpdate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreTxt.text = GameManager.instance.GetStar().ToString();
+        scoreTxt.text = (GameManager.instance.GetScore() + GameManager.instance.GetTotalScore()).ToString();
 
         if(GameManager.instance.GetDeathCount() == 1 && firstDeath)
         {
             AddDeathMessage();
         }
+
+        elapsed += Time.deltaTime;
+
+        if(elapsed >= 1f)
+        {
+            Debug.Log("Vapo");
+            elapsed %= 1f;
+            GameManager.instance.AddScore(10);
+        }
+
+
     }
 
 

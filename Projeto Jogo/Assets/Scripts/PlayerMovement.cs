@@ -194,34 +194,34 @@ public class PlayerMovement : MonoBehaviour
         if (PlayerHasControl)
         {
             // Jump movement
-            if (Input.GetKeyDown(KeyCode.UpArrow))
+            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
             {
                 if (jumpCount < maxJumps)
                     Jump();
             }
 
             // Drop movement
-            if (Input.GetKeyDown(KeyCode.DownArrow))
+            if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
             {
                 Drop();
             }
 
-            // Up dash movement
-            if (Input.GetKeyDown(KeyCode.W))
-            {
-                if (readyToDash && !isGrounded)
-                    UpDash();
-            }
+            //// Up dash movement
+            //if (Input.GetKeyDown(KeyCode.W))
+            //{
+            //    if (readyToDash && !isGrounded)
+            //        UpDash();
+            //}
 
-            // Down dash movement
-            if (Input.GetKeyDown(KeyCode.S))
-            {
-                if (readyToDash && !isGrounded)
-                    DownDash();
-            }
+            //// Down dash movement
+            //if (Input.GetKeyDown(KeyCode.S))
+            //{
+            //    if (readyToDash && !isGrounded)
+            //        DownDash();
+            //}
 
             // Right dash movement
-            if (Input.GetKeyDown(KeyCode.D))
+            if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
             {
                 if (readyToDash && !isGrounded)
                     LateralDash();
@@ -263,8 +263,6 @@ public class PlayerMovement : MonoBehaviour
             canDropRoll = false;
             StartCoroutine(PauseDrop());
         }
-
-        Debug.Log("drop status " + canDropRoll);
 
         if (platform != null)
         {
@@ -366,7 +364,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision.gameObject.tag);
         if (collision.gameObject.tag.ToString() == "Ground")
         {
             isGrounded = true;
