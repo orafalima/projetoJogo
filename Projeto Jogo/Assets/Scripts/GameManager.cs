@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     private int score = 0;
     private int totalStarCount = 0;
     private int totalScore = 0;
-    private int[] starsRequired = new int[9] { 3, 4, 3, 6, 8, 10, 5, 6, 20 };
+    private int[] starsRequired = new int[10] { 3, 4, 3, 6, 8, 10, 5, 6, 20, 0};
     private int level = 0;
     private int deathCount = 0;
     private bool hasCape = false;
@@ -51,8 +51,8 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadSceneAsync((int)ScenesIndexes.LEVEL_1, LoadSceneMode.Additive);
             level++;
+            SceneManager.LoadSceneAsync(level + 3, LoadSceneMode.Additive);
         }
     }
 
@@ -60,8 +60,8 @@ public class GameManager : MonoBehaviour
     {
         hasCape = true;
         SceneManager.UnloadSceneAsync(level + 3);
-        level = 9;
-        SceneManager.LoadSceneAsync(12, LoadSceneMode.Additive);
+        level = 10;
+        SceneManager.LoadSceneAsync(level + 3, LoadSceneMode.Additive);
     }
 
     public void BackToMenu()
@@ -199,6 +199,25 @@ public class GameManager : MonoBehaviour
     public void SetCape(bool value)
     {
         hasCape = value;
+    }
+
+    public void EscapeGame()
+    {
+        SceneManager.UnloadSceneAsync(level + 3);
+        SceneManager.LoadSceneAsync((int)ScenesIndexes.MENU, LoadSceneMode.Additive);
+        level--;
+    }
+
+
+    // TODO IMPLEMENT PAUSE
+    public void Pause()
+    {
+        Time.timeScale = 0;
+    }
+
+    public void Resume()
+    {
+        Time.timeScale = 1;
     }
 
 
