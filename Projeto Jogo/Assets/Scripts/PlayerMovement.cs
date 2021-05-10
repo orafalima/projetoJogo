@@ -46,7 +46,6 @@ public class PlayerMovement : MonoBehaviour
     private bool canDropRoll; // controller for dropping animation
 
     // Cape Attributes
-    public GameObject cape;
     public bool hasCape;
 
     // Animation & Sprites Controller
@@ -74,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
         p_RigidBody2D = GetComponent<Rigidbody2D>();
         sprites = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
-        capeAnimator = cape.GetComponent<Animator>();
+        capeAnimator = transform.GetChild(0).GetComponent<Animator>();
 
         // Setting Animator Controller for Cape
         if (!GameManager.instance.GetCape()) animator.runtimeAnimatorController = animatorOverrider;

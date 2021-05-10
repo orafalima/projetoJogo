@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     private int level = 0;
     private int deathCount = 0;
     private bool hasCape = false;
+    public bool debug = false;
 
     // Gambiarra variable
     private bool notEnoughStar = false;
@@ -40,8 +41,13 @@ public class GameManager : MonoBehaviour
         GameManager.instance.Play("select");
         // Scene change
         SceneManager.UnloadSceneAsync((int)ScenesIndexes.MENU);
+        if (!debug) {
         SceneManager.LoadSceneAsync((int)ScenesIndexes.LEVEL_1, LoadSceneMode.Additive);
         level++;
+        }else
+        {
+            SceneManager.LoadSceneAsync(13, LoadSceneMode.Additive);
+        }
     }
 
     // Exit game - desktop builds only
