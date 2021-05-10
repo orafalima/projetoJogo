@@ -21,6 +21,7 @@ public class PlayerRespawn : MonoBehaviour
         player.transform.position = deathSpawnPoint.transform.position;
         GameManager.instance.ResetStarScore();
         GameManager.instance.AddDeath();
+        GameManager.instance.Play("death");
         }
     }
 }

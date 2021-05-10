@@ -20,11 +20,13 @@ public class PortalLogic : MonoBehaviour
                 player.transform.position = deathSpawnPoint.transform.position;
                 GameManager.instance.ResetStarScore();
                 GameManager.instance.AddDeath();
+                GameManager.instance.Play("failure");
             }
             else
             {
                 SoundManager.Play("star");
                 GameManager.instance.NextLevel();
+                GameManager.instance.Play("success");
             }
 
         }

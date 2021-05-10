@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    private static AudioClip select, change, star, track, jump, dash;
+    private static AudioClip select, change, star, track, jump, dash,
+        death, failureLevel, successLevel;
     static AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
@@ -13,6 +14,9 @@ public class SoundManager : MonoBehaviour
         track = Resources.Load<AudioClip>("Audio/soundtrack2");
         jump = Resources.Load<AudioClip>("Audio/Jump");
         dash = Resources.Load<AudioClip>("Audio/Dash");
+        death = Resources.Load<AudioClip>("Audio/death");
+        failureLevel = Resources.Load<AudioClip>("Audio/failureLevel");
+        successLevel = Resources.Load<AudioClip>("Audio/successLevel");
 
         audioSource = GameObject.Find("SoundManager").GetComponent<AudioSource>();
     }
@@ -43,6 +47,15 @@ public class SoundManager : MonoBehaviour
                 break;
             case "dash":
                 audioSource.PlayOneShot(dash, GameManager.instance.GetVolume());
+                break;
+            case "failure":
+                audioSource.PlayOneShot(failureLevel, GameManager.instance.GetVolume());
+                break;
+            case "success":
+                audioSource.PlayOneShot(successLevel, GameManager.instance.GetVolume());
+                break;
+            case "death":
+                audioSource.PlayOneShot(death, GameManager.instance.GetVolume());
                 break;
         }
     }
