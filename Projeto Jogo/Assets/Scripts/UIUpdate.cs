@@ -47,6 +47,26 @@ public class UIUpdate : MonoBehaviour
                 levelTextList.Enqueue("Você executará um super pulo");
                 levelTextList.Enqueue("Use para alcançar lugares que não alcançaria normalmente");
                 break;
+            case 6:
+                levelTextList.Enqueue("Você pode utilizar um mergulho logo após o superpulo");
+                levelTextList.Enqueue("Aproveite essa mecânica para controlar onde vai aterrissar");
+                break;
+            case 7:
+                levelTextList.Enqueue("Nem sempre coletar todas as estrelas é o melhor caminho");
+                levelTextList.Enqueue("As vezes elas podem te levar para um caminho sem saída");
+                break;
+            case 8:
+                levelTextList.Enqueue("Tome cuidado com pulos muito altos");
+                levelTextList.Enqueue("Você pode acabar perdendo a visão de onde deve aterrissar");
+                break;
+            case 9:
+                levelTextList.Enqueue("Para chegar até aqui você se esforçou bastante...");
+                levelTextList.Enqueue("O que será que há depois desse portal?");
+                break;
+            case 10:
+                levelTextList.Enqueue("Fim de jogo.");
+                levelTextList.Enqueue("Mas somente por enquanto...");
+                break;
         }
 
         levelTextList.Enqueue("Colete " + GameManager.instance.GetStarsRequired() + " estrelas e chegue até o final para prosseguir");

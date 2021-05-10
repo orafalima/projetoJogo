@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
     {
         hasCape = true;
         SceneManager.UnloadSceneAsync(level + 3);
-        level = 0;
+        level = 9;
         SceneManager.LoadSceneAsync(12, LoadSceneMode.Additive);
     }
 
