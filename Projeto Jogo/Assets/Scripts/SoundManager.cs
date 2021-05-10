@@ -38,7 +38,7 @@ public class SoundManager : MonoBehaviour
                 audioSource.PlayOneShot(star, GameManager.instance.GetVolume());
                 break;
             case "soundtrack":
-                audioSource.PlayOneShot(track, GameManager.instance.GetVolume());
+                audioSource.PlayOneShot(track, GameManager.instance.GetSoundtrackVolume());
                 break;
             case "jump":
                 audioSource.PlayOneShot(jump, GameManager.instance.GetVolume());

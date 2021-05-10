@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
 
     // Game sound volume :))))))))))
     private float volume = 0.5f;
+    private float soundtrackVolume = 0.7f;
 
     private void Awake()
     {
@@ -108,5 +109,10 @@ public class GameManager : MonoBehaviour
     public float GetVolume()
     {
         return volume;
+    }
+
+    public float GetSoundtrackVolume()
+    {
+        return soundtrackVolume;
     }
 }
