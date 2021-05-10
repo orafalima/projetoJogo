@@ -218,6 +218,11 @@ public class PlayerMovement : MonoBehaviour
                 ResetLevel();
             }
 
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                GameManager.instance.EscapeGame();
+            }
+
             //// Up dash movement
             //if (Input.GetKeyDown(KeyCode.W))
             //{
