@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     private bool lateralDash = false;
     private bool upDash = false;
     private bool downDash = false;
+    private bool dropRoll = false;
 
     // Running Attributes
     public enum Direction { Right, Left }
@@ -42,11 +43,14 @@ public class PlayerMovement : MonoBehaviour
     public float upDashForce = 13;
     public float downDashForce = 20;
     public float rightDashForce = 10;
+    private bool canDropRoll; // controller for dropping animation
 
     // Cape Attributes
+    public GameObject cape;
     public bool hasCape;
 
     // Animation & Sprites Controller
+    private Animator capeAnimator;
     private Animator animator;
     private SpriteRenderer sprites;
     public AnimatorOverrideController animatorOverrider;
@@ -55,13 +59,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        // WARNING: ALL TO 'FALSE' ON GAMEBUILD
+        // WARNING: ALL TO 'FALSE' ON GAMEBUILD OR ACCORDING TO GAMEMANAGER STATE
         // Setting Initial Attributes
         PlayerHasControl = true;
         running = true;
         hasCape = true;
         canDash = true;
         IsDead = false;
+        canDropRoll = true;
         currentSpeed = speed;
         dashTimePassed = dashCooldown;
 
@@ -69,6 +74,7 @@ public class PlayerMovement : MonoBehaviour
         p_RigidBody2D = GetComponent<Rigidbody2D>();
         sprites = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        capeAnimator = cape.GetComponent<Animator>();
 
         // Setting Animator Controller for Cape
         if (!hasCape) animator.runtimeAnimatorController = animatorOverrider;
@@ -113,6 +119,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 dashTimePassed += Time.fixedDeltaTime;
                 readyToDash = false;
+
             }
             else
             {
@@ -172,6 +179,11 @@ public class PlayerMovement : MonoBehaviour
             {
                 p_RigidBody2D.velocity = new Vector2(p_RigidBody2D.velocity.x, upDashForce);
                 upDash = false;
+            }
+            if (dropRoll)
+            {
+                p_RigidBody2D.velocity = new Vector2(p_RigidBody2D.velocity.x, -jumpForce * .75f);
+                dropRoll = false;
             }
         }
     }
@@ -241,16 +253,32 @@ public class PlayerMovement : MonoBehaviour
 
     private void Drop()
     {
-        animator.SetTrigger("dropping");
+        // should be a raycast until finds "ground", 
+        // but since I'm tired and this shit is taking too long
+        // let's leave like that pls
+
+        if (canDropRoll)
+        {
+            animator.SetTrigger("dropping");
+            canDropRoll = false;
+            StartCoroutine(PauseDrop());
+        }
+
+        Debug.Log("drop status " + canDropRoll);
 
         if (platform != null)
+        {
             platform.GetComponent<EdgeCollider2D>().enabled = false;
+        }
+
+        dropRoll = true;
     }
 
     private void LateralDash()
     {
         // Animation Cycle
         animator.SetTrigger("lateralDash");
+        capeAnimator.SetTrigger("lateralDash");
 
         // Audio Cycle
         GameManager.instance.Play("dash");
@@ -266,6 +294,7 @@ public class PlayerMovement : MonoBehaviour
     {
         // Animation Cycle
         animator.SetTrigger("downDash");
+        capeAnimator.SetTrigger("lateralDash");
 
         // Audio Cycle
         GameManager.instance.Play("dash");
@@ -281,6 +310,7 @@ public class PlayerMovement : MonoBehaviour
     {
         // Animation Cycle
         animator.SetTrigger("upDash");
+        capeAnimator.SetTrigger("lateralDash");
 
         // Audio Cycle
         GameManager.instance.Play("dash");
@@ -305,12 +335,19 @@ public class PlayerMovement : MonoBehaviour
         speed = currentSpeed;
     }
 
+    IEnumerator PauseDrop()
+    {
+        yield return new WaitForSeconds(1.2f);
+        canDropRoll = true;
+    }
+
     public void StopRunning()
     {
         if (speed > 0)
         {
             animator.SetTrigger("stopping");
             animator.SetBool("running", false);
+            capeAnimator.SetTrigger("interrupt");
 
             speed = 0;
             running = false;
@@ -329,7 +366,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ground")
+        Debug.Log(collision.gameObject.tag);
+        if (collision.gameObject.tag.ToString() == "Ground")
         {
             isGrounded = true;
             jumpCount = 0;
@@ -337,11 +375,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.gameObject.tag == "Platform")
         {
+
             platform = collision.gameObject;
             isGrounded = true;
             jumpCount = 0;
         }
-
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -360,7 +398,7 @@ public class PlayerMovement : MonoBehaviour
 
     public bool getReadyToDash()
     {
-        return this.readyToDash;
+        return readyToDash;
     }
 
 }
