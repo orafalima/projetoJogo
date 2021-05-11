@@ -40,16 +40,16 @@ public class GameManager : MonoBehaviour
         GameManager.instance.Play("select");
         // Scene change
         SceneManager.UnloadSceneAsync((int)ScenesIndexes.MENU);
-        if (debug)
-        {
-            hasCape = true;
-            SceneManager.LoadSceneAsync(13, LoadSceneMode.Additive);
-        }
-        else
-        {
+        //if (debug)
+        //{
+        //    hasCape = true;
+        //    SceneManager.LoadSceneAsync(13, LoadSceneMode.Additive);
+        //}
+        //else
+        //{
             level++;
             SceneManager.LoadSceneAsync(level + 3, LoadSceneMode.Additive);
-        }
+        //}
     }
 
     public void RunTest()
@@ -203,6 +203,7 @@ public class GameManager : MonoBehaviour
         SceneManager.UnloadSceneAsync(level + 3);
         SceneManager.LoadSceneAsync((int)ScenesIndexes.MENU, LoadSceneMode.Additive);
         level--;
+        ResetStarScore();
         soundtrack.Stop();
     }
 
