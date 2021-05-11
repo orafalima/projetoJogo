@@ -32,10 +32,6 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadSceneAsync((int)ScenesIndexes.MENU, LoadSceneMode.Additive);
     }
 
-    private void Start()
-    {
-    }
-
     // Load first level scene
     public void PlayGame()
     {
