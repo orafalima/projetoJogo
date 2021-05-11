@@ -23,14 +23,15 @@ public class StarCollector : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (collected)
-        {
-            this.gameObject.transform.position = new Vector3(starCollider.gameObject.transform.position.x, starCollider.gameObject.transform.position.y, -999);
-        }
+        //if (collected)
+        //{
+        //    this.gameObject.transform.position = new Vector3(starCollider.gameObject.transform.position.x, starCollider.gameObject.transform.position.y, -999);
+        //}
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision is CircleCollider2D && !collected)
+        //if (collision is CircleCollider2D && !collected)
+        if (collision is CircleCollider2D)
         {
             animator.SetTrigger("collected");
             SoundManager.Play("star");
