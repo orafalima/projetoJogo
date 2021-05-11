@@ -26,8 +26,8 @@ public class UIUpdate : MonoBehaviour
         scoreTxt = GameObject.Find("scoreValue").GetComponent<TextMeshProUGUI>();
         levelTextList = new Queue<string>();
         levelTxt = GameObject.Find("levelTxt").GetComponent<TextMeshProUGUI>();
+        levelTxt.fontSize = 25;
         levelTxt.text = "Nível " + GameManager.instance.GetLevel();
-        levelTxt.fontSize = 80;
         switch (GameManager.instance.GetLevel())
         {
             case 1:
@@ -144,6 +144,7 @@ public class UIUpdate : MonoBehaviour
 
     IEnumerator FadeLevelText()
     {
+        levelTxt.fontSize = 25;
         yield return new WaitForSeconds(2);
 
         for (float i = 1; i >= 0; i -= Time.deltaTime)
