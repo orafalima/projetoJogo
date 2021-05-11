@@ -514,11 +514,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1924141720533607256, guid: c2609999edfc3534e93544fe250321a7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.43
+      value: 5.57
       objectReference: {fileID: 0}
     - target: {fileID: 1924141720533607256, guid: c2609999edfc3534e93544fe250321a7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.07
+      value: -3.45
       objectReference: {fileID: 0}
     - target: {fileID: 1924141720533607270, guid: c2609999edfc3534e93544fe250321a7, type: 3}
       propertyPath: m_Color.a
