@@ -202,15 +202,15 @@ public class PlayerMovement : MonoBehaviour
             }
 
             // CHEATER
-            if (Input.GetKeyDown(KeyCode.P))
-            {
-                GameManager.instance.NextLevel();
-            }
+            //if (Input.GetKeyDown(KeyCode.P))
+            //{
+            //    GameManager.instance.NextLevel();
+            //}
 
-            if (Input.GetKeyDown(KeyCode.O))
-            {
-                GameManager.instance.RunTest();
-            }
+            //if (Input.GetKeyDown(KeyCode.O))
+            //{
+            //    GameManager.instance.RunTest();
+            //}
 
             // RESET LEVEL
             if (Input.GetKeyDown(KeyCode.R))
