@@ -8,6 +8,7 @@ public class CadentStar : MonoBehaviour
     private Animator animator;
     private bool big;
     private bool shootable;
+    //GameObject[] cadent;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +16,9 @@ public class CadentStar : MonoBehaviour
         big = false;
         shootable = true;
         animator.Play("dead");
+        //cadent = GameObject.FindGameObjectsWithTag("Cadent");
+
+        //FadeCadent();
     }
 
     // Update is called once per frame
@@ -45,4 +49,19 @@ public class CadentStar : MonoBehaviour
 
         shootable = true;
     }
+
+    //IEnumerator FadeCadent()
+    //{
+    //    for (float i = 0; i <= 0; i += Time.deltaTime)
+    //    {
+    //        foreach(GameObject star in cadent)
+    //        {
+    //            SpriteRenderer renderer = star.gameObject.GetComponent<Renderer>() as SpriteRenderer;
+    //            renderer.color = new Color(1, 1, 1, i);
+    //            yield return null;
+    //        }
+            
+    //    }
+
+    //}
 }

@@ -6,11 +6,11 @@ public class StarCollector : MonoBehaviour
     public AnimatorOverrideController overrider;
     private Animator animator;
     private Collider2D starCollider;
-    private bool collected;
+    //private bool collected;
 
     private void Start()
     {
-        collected = false;
+        //collected = false;
         float aleatorio = Random.Range(0, 10);
         
         animator = GetComponent<Animator>();
@@ -47,7 +47,7 @@ public class StarCollector : MonoBehaviour
     IEnumerator DespawnStar()
     {
         yield return new WaitForSeconds(1f);
-        collected = true;
+        //collected = true;
     }
 
 }

@@ -18,6 +18,7 @@ public class UIUpdate : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        levelTxt = GameObject.Find("levelTxt").GetComponent<TextMeshProUGUI>();
         levelTxt.text = "Nível " + GameManager.instance.GetLevel();
         levelTxt.fontSize = 80;
         switch (GameManager.instance.GetLevel())
@@ -72,16 +73,13 @@ public class UIUpdate : MonoBehaviour
         }
 
         levelTextList.Enqueue("Colete " + GameManager.instance.GetStarsRequired() + " estrelas e chegue até o final para prosseguir");
+        StartCoroutine(FadeLevelText());
     }
 
     void Awake()
     {
         scoreTxt = GameObject.Find("scoreValue").GetComponent<TextMeshProUGUI>();
-        levelTxt = GameObject.Find("levelTxt").GetComponent<TextMeshProUGUI>();
         levelTextList = new Queue<string>();
-
-        StartCoroutine(FadeLevelText());
-
     }
 
     public void AddDeathMessage()
