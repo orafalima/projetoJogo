@@ -15,13 +15,6 @@ public class StarAnimator : MonoBehaviour
         animator = GetComponent<Animator>();
         animator.SetTrigger("birth");
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     IEnumerator Create()
     {
         if (dead)

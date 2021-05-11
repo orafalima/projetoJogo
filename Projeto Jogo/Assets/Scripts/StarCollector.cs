@@ -16,14 +16,13 @@ public class StarCollector : MonoBehaviour
 
         if (aleatorio > 5)
             animator.runtimeAnimatorController = overrider;
+
+        animator.Play("star");
+
     }
 
     private void FixedUpdate()
     {
-        if (collected)
-        {
-            this.gameObject.transform.position = new Vector3(starCollider.gameObject.transform.position.x, starCollider.gameObject.transform.position.y, -999);
-        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -34,13 +33,14 @@ public class StarCollector : MonoBehaviour
             GameManager.instance.AddStar();
             GameManager.instance.AddScore(200);
             starCollider = collision;
+            this.gameObject.transform.position = new Vector3(starCollider.gameObject.transform.position.x, starCollider.gameObject.transform.position.y, -999);
+
             StartCoroutine(DespawnStar());
         }
     }
 
     IEnumerator DespawnStar()
     {
-        yield return new WaitForSeconds(.1f);
-        collected = true;
+        yield return new WaitForSeconds(1f);
     }
 }

@@ -4,23 +4,38 @@ using UnityEngine;
 
 public class StarAnimatorController : MonoBehaviour
 {
-
-    private GameObject[] starpool;
-
+    private bool trigger;
+    private Animator[] childrenAnimator;
 
     // Start is called before the first frame update
     void Start()
     {
-        //starpool = new GameObject();
-        //for (int i = 0; i < 20; i++)
-        //{
-        //    starpool.add(transform.GetChild(i));
-        //}
+        childrenAnimator = GetComponentsInChildren<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (trigger)
+        {
+            StartCoroutine(RandomizeDeathPositions());
+        }
+    }
+
+    private IEnumerator RandomizeDeathPositions()
+    {
+
+        foreach (Animator compChild in childrenAnimator)
+        {
+            float death = Random.Range(0,9);
+
+            yield return new WaitForSeconds(Random.Range(0, 1));
+
+            if (death > 5)
+            {
+                compChild.SetTrigger("death");
+                compChild.GetComponentInParent<Transform>().position.Set(Random.Range(-855, 855), Random.Range(-490, 490),0);
+            }
+        }
     }
 }

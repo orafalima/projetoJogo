@@ -144,6 +144,7 @@ public class GameManager : MonoBehaviour
         foreach (GameObject star in stars)
         {
             star.gameObject.transform.position = new Vector3(star.gameObject.transform.position.x, star.gameObject.transform.position.y, 0);
+            star.GetComponent<Animator>().SetTrigger("respawn");
         }
 
         score = 0;
